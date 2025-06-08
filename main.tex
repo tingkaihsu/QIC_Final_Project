@@ -66,18 +66,72 @@ Here, we simply consider transmisstion by a third quantum bit $ C $, $ \hat \rho
 Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
 The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
 
-The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $:
+The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $, and $ | a \ar = \alpha | 0 \ar + \beta | 1 \ar $:
 \be
     U \rho_{ A, 0 } \otimes \rho_{ C, 0 } U^{\dagger} = \rho_{ C, 0 } \otimes \rho_{ A, 0 }
 \ee
 
+The SWAP operator is:
+\be
+    U = \begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & \alpha^* & \beta^* & 0\\
+        0 & \beta & -\alpha & 0\\
+        0 & 0 & 0 & 1\\
+    \end{pmatrix}
+\ee
 
 \textbf{Remark: }
 The transmission of qubit described above is rather trivial; however, it is based on an important fact that the dimension of the Hilbert space of $ C $ is the same as those of the Hilbert space of $ A $ and $ B $, so there is an isomorphism between the Hilbert spaces.
 As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
+
 \section{Quantum Channel: Via Quantum Fields}
+In this section, we breifly review the idea of quantum transmission via quantum fields \cite{PhysRevD.101.036014}.
+As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the priciples of sepcial relativity.
+
 \subsection{Brief Review on Quantum Field Theory}
+Many quantum field theory textbooks introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
+The equation of motion (e.o.m) of harmonic oscillators in the configuration space:
+\be
+    \ddot{ q }( t ) + \omega^2 q( t ) = 0
+\ee
+
+If there is no specific boundary condition, the general solution of position $ q( t ) $ and the conjugate momentum $ p(t) $is given by:
+\be
+\begin{split}
+    q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( a e^{ - i \omega t } + a^{ * } e^{ i \omega t } \rt)\\
+    p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( a e^{ - i \omega t } - a^{ * } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The pre-factor is a convenient choice to canonical quantization:
+\be
+    \lt[ \hat q (t), \hat p (t) \rt] = i \hbar,\,\, \lt[ \hat a, \hat a^{ \dagger } \rt] = 1
+\ee
+
+\be
+\begin{split}
+    \hat q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( \hat a e^{ - i \omega t } + \hat a^{ \dagger } e^{ i \omega t } \rt)\\
+    \hat p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( \hat a e^{ - i \omega t } - \hat a^{ \dagger } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The e.o.m, canonical quantization, and the Fourier modes of real scalar field are similar to the quantum oscillator, and we denote the conjugate momentum as $ \pi(\mb{x}, t) $:
+
+\be
+\begin{split}
+    \ddot\phi + \nabla^2 \phi + m^2 \phi = 0\\
+    \hat \phi( \mb{x}, t ) = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \hat \pi( \mb{x}, t ) = \p_t \hat \phi = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( -iE_k \cdot \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \lt[\hat \phi( \mb x, t ), \hat \pi( \mb y, t ) \rt] = i\delta^{3}( \mb x - \mb y ),\,\,\, \lt[ \hat a( \mb k ), \hat a^{ \dagger }( \mb k' )\rt] = \delta^{3}( \mb k - \mb k' ) 
+\end{split}
+\ee
+where $ E_k = |\mb k|^2 + m^2 $ is the energy.
+
+\subsection{Fock Space and Physical States}
+
 \subsection{Unruh-DeWitt model}
+
 \appendix
 
 \acknowledgments
