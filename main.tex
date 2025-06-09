@@ -2,6 +2,7 @@
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
 \usepackage{indentfirst}
+
 % \linenumbers
 
 
@@ -78,6 +79,64 @@ As we will see in the next section, the Hilbert space (or more precisely, the Fo
 \section{Quantum Channel: Via Quantum Fields}
 \subsection{Brief Review on Quantum Field Theory}
 \subsection{Unruh-DeWitt model}
+
+\section{Non-isotropic Smearing Function}
+\subsection{Problem Setup}
+The smearing function used in the paper is isotropic (i.e., $F_A = \frac{1}{\sqrt{\pi}\sigma} \exp\left(-\frac{|\mathbf{x}|^2}{\sigma^2}\right)$), which leads to isotropic propagation of information. In our study, we aim to investigate whether employing a non-isotropic smearing function could lead to different behavior.
+
+As a first step, we consider a smearing function $F_A$ with axial symmetry, i.e., $F_A = R(r)\Theta(\theta)$.
+And do fallowing simplification, 
+\begin{enumerate}
+  \item $R(r)$ is localized at $r = 0$, i.e., $R(r \rightarrow \infty) = 0$
+  \item $\Theta(\theta) = \frac{\delta(\theta)}{\sin{\theta}}$,
+\end{enumerate}
+where the $\frac{1}{\sin\theta}$ factor arises from the solid angle element in spherical coordinates.
+The reason of first simplification is that Alice should not able to encode the information with the infinite range. And the reason of second simplification is the delta function should provide a well non-isotropic condition.
+
+Under this construction, the smearing function $F_{B1}$ becomes
+\be
+    F_{B1}(\mathbf{x}) = \int \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\phi\, r^2 \sin{\theta} \, R(r)\frac{\delta(\theta)}{\sin{\theta}} \frac{\delta\left(\left|\mathbf{r} - \mathbf{x}\right| - \Delta\right)}{\left|\mathbf{r} - \mathbf{x}\right|}
+\ee
+To evaluate the delta function, we use the following identity:
+\[
+    \int \mathrm{d}x g(x) \delta(f(x)) = \int \mathrm{d}f \frac{g}{\left|f'\right|} \delta(f) = \sum_i\frac{g(x_i0)}{\left|f'(x_{i0})\right|}
+\]
+where $x_{i0}$ are all $x$ within the domain of integration which satisfy $f(x_{i0}) = 0$. Since in our case, we only integrate over positive real values of $r$, we only consider the solutions $r \in \mathbb{R}^+$ in the following calculation.
+
+Before proceeding, we need to express $|\mathbf{r} - \mathbf{x}|$ in terms of $(r, \theta, \phi)$, so that we can perform the integration explicitly. Given that the smearing function is axially symmetric, we align $\mathbf{x}$ along the $\phi = 0$ plane, i.e., we choose coordinates such that $\mathbf{x} = (x, \theta_x, 0)$, since any $\mathbf{x} = (x, \theta_x, \phi)$ yields the same value due to the symmetry. Then, the distance between $\mathbf{r}$ and $\mathbf{x}$ can be written as
+\[
+|\mathbf{r} - \mathbf{x}| = \sqrt{r^2 + x^2 - 2rx \cos\gamma},
+\]
+where $\gamma$ is the angle between $\mathbf{r}$ and $\mathbf{x}$. Using the spherical coordinate expression for the angle between two vectors, we have
+\[
+\cos\gamma = \cos\theta \cos\theta_x + \sin\theta \sin\theta_x \cos\phi.
+\]
+The whole function becomes
+\be
+    F_{B1}(\mathbf{x}) = \int \mathrm{d}\theta\, \mathrm{d}\phi\, \mathrm{d}r\, r^2 \, R(r) \delta(\theta) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{\sqrt{r^2 + x^2 - 2rx \cos\gamma}}
+\ee
+The solutions of $\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta = 0$ are
+\[
+    r_\pm = x\cos\gamma \pm \sqrt{x^2 \cos^2\gamma - (x^2 - \Delta^2)}
+\]
+We mention before, we only need the positive real solutions. So now we discuss when will $r_\pm$ be positive, when will be negative, or even be complex.
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $\cos{\gamma} > 0$ & $\Delta^2 > x^2$ & $\left|\sin\gamma\right| < \frac{\Delta}{x}$ & remain solutions & reason of unavalible\\
+    \hline\hline
+    True & True & - & + & $\mathbb{R^-}$\\
+    True & False & True & $\pm$ & -\\
+    True & False & False & 0 & $\mathbb{C-R}$\\
+    False & True & - & + & $\mathbb{R^-}$\\
+    False & False & - & 0 & $\mathbb{R^-}$\\
+    \hline
+  \end{tabular}
+\end{center}
+Then we do another simplification, that is $\gamma = 0, \pi$, i.e., align $\mathbf{x}$ on the axis of $\mathbf{r}$. The reason we do this simplification is that we wonder how should Bob measure the field on the axis where also should has the most significant non-isotropic phenonenon.
+\subsection{Result}
+
+
 \appendix
 
 \acknowledgments
