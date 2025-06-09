@@ -57,26 +57,169 @@ Taipei, Taiwan}
 \maketitle
 \flushbottom
 % \section{Path Integral in Euclidean Signature}
+In this section, we briefly review the idea of quantum transmission via quantum fields \cite{PhysRevD.101.036014}.
+As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the principles of special relativity.
+
+\subsection*{Brief Review on Quantum Field Theory}
+Many quantum field theory textbooks introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
+The equation of motion (e.o.m) of harmonic oscillators in the configuration space:
+\be
+    \ddot{ q }( t ) + \omega^2 q( t ) = 0
+\ee
+
+If there is no specific boundary condition, the general solution of position $ q( t ) $ and the conjugate momentum $ p(t) $is given by:
+\be
+\begin{split}
+    q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( a e^{ - i \omega t } + a^{ * } e^{ i \omega t } \rt)\\
+    p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( a e^{ - i \omega t } - a^{ * } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The pre-factor is a convenient choice to canonical quantization:
+\be
+    \lt[ \hat q (t), \hat p (t) \rt] = i \hbar,\,\, \lt[ \hat a, \hat a^{ \dagger } \rt] = 1
+\ee
+
+\be
+\begin{split}
+    \hat q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( \hat a e^{ - i \omega t } + \hat a^{ \dagger } e^{ i \omega t } \rt)\\
+    \hat p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( \hat a e^{ - i \omega t } - \hat a^{ \dagger } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The e.o.m, canonical quantization, and the Fourier modes of real scalar field are similar to the quantum oscillator, and we denote the conjugate momentum as $ \pi(\mb{x}, t) $:
+
+\be
+\begin{gathered}
+    \ddot\phi + \nabla^2 \phi + m^2 \phi = 0\\
+    \hat \phi( \mb{x}, t ) = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \hat \pi( \mb{x}, t ) = \p_t \hat \phi = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( -iE_k \cdot \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \lt[\hat \phi( \mb x, t ), \hat \pi( \mb y, t ) \rt] = i\delta^{3}( \mb x - \mb y ),\,\,\, \lt[ \hat a( \mb k ), \hat a^{ \dagger }( \mb k' )\rt] = \delta^{3}( \mb k - \mb k' ) 
+\end{gathered}
+\ee
+where $ E_k = |\mb k|^2 + m^2 $ is the energy.
+
+\subsection*{Fock Space and Physical States}
+Next, we focus on the quantum states built by the system, and see where is the difference between quantum mechanics and quantum field theory.
+Again, let's first start with the quantum oscillator, the Hamiltonian of this system can be obtain by:
+\be
+    \hat H ( \hat p, \hat q ) := \hat p \hat{ \dot{q} } - \hat L = \f{ 1 }{ 2 } \lt( \hat p^2 + \omega^2 \hat q^2 \rt)
+\ee
+
+After some algebra and using the commutation relation of $\hat a$ and $\hat a^{\dagger}$, there is a simple relation between the Hamiltonian and the operator $\hat a$ and $\hat a^{\dagger}$ :
+
+\be
+    \hat H = \f{ \hbar \omega }{ 2 } \lt( \hat a^{ \dagger } \hat a + \hat a \hat a^{ \dagger } \rt) \equiv - \f{\hbar \omega}{ 2 } + \hbar \omega \hat N 
+\ee
+
+Number operator $ \hat N \equiv \hat a \hat a^{\dagger} $ is defined, and we see that it can be simultaneously diagonalized with the Hamiltonian.
+So consider the eigenstates of number operator, and assume there is no degeneracy, and now the operators $\hat a$ and $\hat a^{\dagger}$ are interpreted as \textit{lowing} and \textit{raising} operator.
+\be
+\begin{gathered}
+    \hat N | n \ar = n | n \ar \\
+    \hat a | n \ar \propto | n-1 \ar\\
+    \hat a^{\dagger} | n \ar \propto | n + 1 \ar  
+\end{gathered}
+\ee
+
+Mathematically, there can be infinite number of eigenstates, but physically, we request the Hamiltonian is bounded below, and we define the state with lowest eigenvalue as \textit{vacuum state}.
+
+\be
+\begin{gathered}
+        \hat a | 0 \ar = 0\\
+        \hat N | 0 \ar = 0\\
+        \al 0 | \hat H | 0 \ar = - \f{ \hbar \omega }{ 2 }
+\end{gathered}
+\ee
+
+As for the real scalar field theory, the \textit{lowering} and \textit{raising} operators become particle \textit{annihilator} and \textit{creator}.
+The Hamiltonian of this system is
+
+\be
+\begin{gathered}
+        \hat H = \int{ d^3 \mb{x} } \f{ 1 }{ 2 } \lt( \hat \pi^2 + ( \nabla \hat \phi )^2 + m^2 \hat \phi^2 \rt) \\
+        = \int{} \f{ d^3 \mb{p} }{ (2\pi)^3 } E_{ p } \lt( \hat a^{\dagger} ( \mb p )\hat a ( \mb p ) + \f{ 1 }{ 2 }\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] \rt)
+\end{gathered}
+\ee
+
+We immediately see a problem of divergence from the second term.
+There are two divergences, one corresponds to the UV divergence of $\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] = \delta(0)$, the other corresponds to the infinite volume in the momentum space over this commutator.
+The UV divergence can be dealt with a UV cutoff, and in field theory, we focus on the Hamiltonian density instead of Hamiltonian to remove the infinite volume.
+Again, we can simultaneously diagonalize the Hamiltonian and the number operator, and the eigenstates are called \textit{particle states}:
+\be
+\begin{gathered}
+    \hat a( \mb p ) | \text{VAC} \ar = 0\\
+    \hat a^{\dagger} ( \mb p ) | \text{VAC} \ar = \sqrt{ 2E_p } | \mb p \ar\\
+    \al \mb q | \mb p \ar = \delta^{ 3 } ( \mb q - \mb p )
+\end{gathered}
+\ee
+
+The pre-factor is here to hold the Lorentz invariance of one particle state.
+
+The non-trivial part of quantum field theory is the physical states, we have vacuum state, one-particle states, multi-particle states, and they do not correspond to a single Hilbert space, but a tensor product of Hilbert spaces, called Fock space.
+If a creator is acted on one-particle state, we expect it to be a two-particle state:
+\be
+    \hat a^{ \dagger } ( \mb q ) | \mb p \ar = | \mb q \ar \otimes | \mb p \ar
+\ee
+
+It is well-known that in quantum mechanics, the one-particle state corresponds to a Hilbert space.
+In quantum field theory, the multiple particle states can be excited, and they are tensor products of one-particle state.
+For real scalar field theory, the Fock space can be written as the direct sum of Hilbert space:
+
+\be
+    F = \bigoplus^{ \infty }_{ n = 0 } H^{ \otimes n }
+\ee
+
+Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, which corresponds to the vacuum state.
+The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
+
+\subsection*{Unruh-DeWitt model}
+In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
+It is used to explain the Unruh-effect of horizon, and here it is used to construct the transmission system.
+Suppose the quantum detectors (it can be physically realized by atomic orbital of crystal) carried by Alice and Bob are localized at spacetime points, and they are coupled to the real scalar quantum field $\phi( \mb x, t )$.
+\subsection*{Strong Coupling Condition}
+
+\subsection*{Qubit in a Field: Encoding}
+
+\subsection*{Qubit out of a Field: Decoding}
+
+\section{Broadcasting Quantum Information}
+
+\subsection*{Isotropic Smearing Function}
+
+\subsection*{Anisotropic Smearing Function}
+
 \section{Quantum Channel: Via Quantum Mechanics}
-In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics posulates.
+In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics postulates.
 In this letter, we focus on the transmission of a qubit from a spacetime emitter Alice $ A $ to a receiver Bob $ B $.
 
 There are various ways to transmit a qubit without contacting, which are based on the \textit{resources} Alice and Bob share.
-For instance, if an entagled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
+For instance, if an entangled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
 Here, we simply consider transmisstion by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
 Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
 The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
 
-The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $:
+The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $, and $ | a \ar = \alpha | 0 \ar + \beta | 1 \ar $:
 \be
     U \rho_{ A, 0 } \otimes \rho_{ C, 0 } U^{\dagger} = \rho_{ C, 0 } \otimes \rho_{ A, 0 }
 \ee
 
+The SWAP operator is:
+\be
+    U = \begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & \alpha^* & \beta^* & 0\\
+        0 & \beta & -\alpha & 0\\
+        0 & 0 & 0 & 1\\
+    \end{pmatrix}
+\ee
 
 \textbf{Remark: }
 The transmission of qubit described above is rather trivial; however, it is based on an important fact that the dimension of the Hilbert space of $ C $ is the same as those of the Hilbert space of $ A $ and $ B $, so there is an isomorphism between the Hilbert spaces.
 As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
+
 \section{Quantum Channel: Via Quantum Fields}
+<<<<<<< HEAD
 \subsection{Brief Review on Quantum Field Theory}
 \subsection{Unruh-DeWitt model}
 
@@ -160,7 +303,6 @@ Since we set $\theta_x = 0, \pi$ and the delta function we mention before, we ca
                        \end{cases} \notag \\
 \end{align}
 We can try to plug in the Gaussian function. And get fallowing figure,
-
 \appendix
 
 \acknowledgments
