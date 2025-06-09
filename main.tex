@@ -162,14 +162,50 @@ Mathematically, there can be infinite number of eigenstates, but physically, we 
 \ee
 
 As for the real scalar field theory, the \textit{lowering} and \textit{raising} operators become particle \textit{annihilator} and \textit{creator}.
-The Hamiltonian density of this system is
+The Hamiltonian of this system is
 
 \be
-    \hat{ \mc{ H } } ( \hat \pi, \hat \phi, \nabla \phi ) = 
+\begin{gathered}
+        \hat H = \int{ d^3 \mb{x} } \f{ 1 }{ 2 } \lt( \hat \pi^2 + ( \nabla \hat \phi )^2 + m^2 \hat \phi^2 \rt) \\
+        = \int{} \f{ d^3 \mb{p} }{ (2\pi)^3 } E_{ p } \lt( \hat a^{\dagger} ( \mb p )\hat a ( \mb p ) + \f{ 1 }{ 2 }\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] \rt)
+\end{gathered}
 \ee
 
-\subsection*{Unruh-DeWitt model}
+We immediately see a problem of divergence from the second term.
+There are two divergences, one corresponds to the UV divergence of $\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] = \delta(0)$, the other corresponds to the infinite volume in the momentum space over this commutator.
+The UV divergence can be dealt with a UV cutoff, and in field theory, we focus on the Hamiltonian density instead of Hamiltonian to remove the infinite volume.
+Again, we can simultaneously diagonalize the Hamiltonian and the number operator, and the eigenstates are called \textit{particle states}:
+\be
+\begin{gathered}
+    \hat a( \mb p ) | \text{VAC} \ar = 0\\
+    \hat a^{\dagger} ( \mb p ) | \text{VAC} \ar = \sqrt{ 2E_p } | \mb p \ar\\
+    \al \mb q | \mb p \ar = \delta^{ 3 } ( \mb q - \mb p )
+\end{gathered}
+\ee
 
+The pre-factor is here to hold the Lorentz invariance of one particle state.
+
+The non-trivial part of quantum field theory is the physical states, we have vacuum state, one-particle states, multi-particle states, and they do not correspond to a single Hilbert space, but a tensor product of Hilbert spaces, called Fock space.
+If a creator is acted on one-particle state, we expect it to be a two-particle state:
+\be
+    \hat a^{ \dagger } ( \mb q ) | \mb p \ar = | \mb q \ar \otimes | \mb p \ar
+\ee
+
+It is well-known that in quantum mechanics, the one-particle state corresponds to a Hilbert space.
+In quantum field theory, the multiple particle states can be excited, and they are tensor products of one-particle state.
+For real scalar field theory, the Fock space can be written as the direct sum of Hilbert space:
+
+\be
+    F = \bigoplus^{ \infty }_{ n = 0 } H^{ \otimes n }
+\ee
+
+Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, which corresponds to the vacuum state.
+The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
+
+\subsection*{Unruh-DeWitt model}
+In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
+It is used to explain the Unruh-effect of horizon, and here it is used to construct the transmission system.
+Suppose the quantum detectors (it can be physically realized by atomic orbital of crystal) carried by Alice and Bob are localized at spacetime points, and they are coupled to the real scalar quantum field $\phi( \mb x, t )$.
 \subsection*{Strong Coupling Condition}
 
 \subsection*{Qubit in a Field: Encoding}
