@@ -57,11 +57,11 @@ Taipei, Taiwan}
 \flushbottom
 % \section{Path Integral in Euclidean Signature}
 \section{Quantum Channel: Via Quantum Mechanics}
-In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics posulates.
+In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics postulates.
 In this letter, we focus on the transmission of a qubit from a spacetime emitter Alice $ A $ to a receiver Bob $ B $.
 
 There are various ways to transmit a qubit without contacting, which are based on the \textit{resources} Alice and Bob share.
-For instance, if an entagled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
+For instance, if an entangled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
 Here, we simply consider transmisstion by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
 Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
 The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
@@ -86,10 +86,10 @@ The transmission of qubit described above is rather trivial; however, it is base
 As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
 
 \section{Quantum Channel: Via Quantum Fields}
-In this section, we breifly review the idea of quantum transmission via quantum fields \cite{PhysRevD.101.036014}.
-As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the priciples of sepcial relativity.
+In this section, we briefly review the idea of quantum transmission via quantum fields \cite{PhysRevD.101.036014}.
+As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the principles of special relativity.
 
-\subsection{Brief Review on Quantum Field Theory}
+\subsection*{Brief Review on Quantum Field Theory}
 Many quantum field theory textbooks introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
 The equation of motion (e.o.m) of harmonic oscillators in the configuration space:
 \be
@@ -128,23 +128,59 @@ The e.o.m, canonical quantization, and the Fourier modes of real scalar field ar
 \ee
 where $ E_k = |\mb k|^2 + m^2 $ is the energy.
 
-\subsection{Fock Space and Physical States}
+\subsection*{Fock Space and Physical States}
 Next, we focus on the quantum states built by the system, and see where is the difference between quantum mechanics and quantum field theory.
-Again, let's first start with the quantum oscillator.
+Again, let's first start with the quantum oscillator, the Hamiltonian of this system can be obtain by:
+\be
+    \hat H ( \hat p, \hat q ) := \hat p \hat{ \dot{q} } - \hat L = \f{ 1 }{ 2 } \lt( \hat p^2 + \omega^2 \hat q^2 \rt)
+\ee
 
-\subsection{Unruh-DeWitt model}
+After some algebra and using the commutation relation of $\hat a$ and $\hat a^{\dagger}$, there is a simple relation between the Hamiltonian and the operator $\hat a$ and $\hat a^{\dagger}$ :
 
-\subsection{Strong Coupling Condition}
+\be
+    \hat H = \f{ \hbar \omega }{ 2 } \lt( \hat a^{ \dagger } \hat a + \hat a \hat a^{ \dagger } \rt) \equiv - \f{\hbar \omega}{ 2 } + \hbar \omega \hat N 
+\ee
 
-\subsection{Qubit in a Field: Encoding}
+Number operator $ \hat N \equiv \hat a \hat a^{\dagger} $ is defined, and we see that it can be simultaneously diagonalized with the Hamiltonian.
+So consider the eigenstates of number operator, and assume there is no degeneracy, and now the operators $\hat a$ and $\hat a^{\dagger}$ are interpreted as \textit{lowing} and \textit{raising} operator.
+\be
+\begin{gathered}
+    \hat N | n \ar = n | n \ar \\
+    \hat a | n \ar \propto | n-1 \ar\\
+    \hat a^{\dagger} | n \ar \propto | n + 1 \ar  
+\end{gathered}
+\ee
 
-\subsection{Qubit out of a Field: Decoding}
+Mathematically, there can be infinite number of eigenstates, but physically, we request the Hamiltonian is bounded below, and we define the state with lowest eigenvalue as \textit{vacuum state}.
+
+\be
+\begin{gathered}
+        \hat a | 0 \ar = 0\\
+        \hat N | 0 \ar = 0\\
+        \al 0 | \hat H | 0 \ar = - \f{ \hbar \omega }{ 2 }
+\end{gathered}
+\ee
+
+As for the real scalar field theory, the \textit{lowering} and \textit{raising} operators become particle \textit{annihilator} and \textit{creator}.
+The Hamiltonian density of this system is
+
+\be
+    \hat{ \mc{ H } } ( \hat \pi, \hat \phi, \nabla \phi ) = 
+\ee
+
+\subsection*{Unruh-DeWitt model}
+
+\subsection*{Strong Coupling Condition}
+
+\subsection*{Qubit in a Field: Encoding}
+
+\subsection*{Qubit out of a Field: Decoding}
 
 \section{Broadcasting Quantum Information}
 
-\subsection{Isotropic Smearing Function}
+\subsection*{Isotropic Smearing Function}
 
-\subsection{Anisotropic Smearing Function}
+\subsection*{Anisotropic Smearing Function}
 
 \appendix
 
