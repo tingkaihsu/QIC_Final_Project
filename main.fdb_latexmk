@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1749449380.19273 "main.aux" "main.bbl" "main" 1749449384.32427 0
+["bibtex main"] 1749479462.26536 "main.aux" "main.bbl" "main" 1749479527.5664 0
   "./ref.bib" 1749350061 509 ede8c9404e59ef12d58940959e3c8e17 ""
   "c:/texlive/2024/texmf-dist/bibtex/bst/base/plain.bst" 1740541235 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1749449382 1211 d834f5243a9b447de966594eed6005d7 "pdflatex"
+  "main.aux" 1749479525 1219 4bcdfae5893d0587aedd3b25e6ff2564 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1749449380.98709 "c:/Users/aaron/Desktop/大學修課/QIC/QIC_Final_Project/main.tex" "main.pdf" "main" 1749449384.32494 0
-  "c:/Users/aaron/Desktop/大學修課/QIC/QIC_Final_Project/main.tex" 1749438815 8731 23e3b0b3ab3a682fdca6a49a99f0d4a8 ""
+["pdflatex"] 1749479523.74687 "c:/Users/aaron/Desktop/大學修課/QIC/QIC_Final_Project/main.tex" "main.pdf" "main" 1749479527.5671 0
+  "c:/Users/aaron/Desktop/大學修課/QIC/QIC_Final_Project/main.tex" 1749479522 11114 e4a017a99ae755745457df4506897ed9 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1740574270 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/adobe/helvetic/phvbc7t.tfm" 1740574747 2672 88159036c64e674fcd9515bc9c7052d4 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1740540415 1004 54797486969f23fa377b128694d548df ""
@@ -50,6 +50,7 @@
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1740540415 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb" 1740540415 28902 2f5c04fd2884d1878057baa5aad22765 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1740540415 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1740540415 32587 65067f817f408bc71a7312f3d9828a9b ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1740540415 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1740540416 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1740540416 36118 fad905eba93cff5bce1e185fe980a177 ""
@@ -117,11 +118,11 @@
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1740625446 3352885 ef67052c56f758778d881c61d9ae90e4 ""
   "c:/texlive/2024/texmf.cnf" 1740625154 713 e69b156964470283e0530f5060668171 ""
   "jheppub.sty" 1749350061 12864 55f075ea8d8b0d006b7cc59773b9f0c9 ""
-  "main.aux" 1749449382 1211 d834f5243a9b447de966594eed6005d7 "pdflatex"
-  "main.bbl" 1749449380 291 ca50194c2710e5e3c6fd41c05394e94d "bibtex main"
-  "main.out" 1749449382 1250 a006cf9e6e8389784b6f78eafd6d3bf9 "pdflatex"
-  "main.tex" 1749438815 8731 23e3b0b3ab3a682fdca6a49a99f0d4a8 ""
-  "main.toc" 1749449382 601 127a955b00513015f7de8549986cc97f "pdflatex"
+  "main.aux" 1749479525 1219 4bcdfae5893d0587aedd3b25e6ff2564 "pdflatex"
+  "main.bbl" 1749479463 291 ca50194c2710e5e3c6fd41c05394e94d "bibtex main"
+  "main.out" 1749479525 1293 62c6615bba6eb701e8c1e56733d93c2b "pdflatex"
+  "main.tex" 1749479522 11114 e4a017a99ae755745457df4506897ed9 ""
+  "main.toc" 1749479525 609 d7c09d7d32825a6e0b12812a7a38b770 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

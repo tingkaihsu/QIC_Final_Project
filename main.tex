@@ -95,7 +95,7 @@ The reason of first simplification is that Alice should not able to encode the i
 
 Under this construction, the smearing function $F_{B1}$ becomes
 \be
-    F_{B1}(\mathbf{x}) = \int \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\phi\, r^2 \sin{\theta} \, R(r)\frac{\delta(\theta)}{\sin{\theta}} \frac{\delta\left(\left|\mathbf{r} - \mathbf{x}\right| - \Delta\right)}{\left|\mathbf{r} - \mathbf{x}\right|}
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\phi\, r^2 \sin{\theta} \, R(r)\frac{\delta(\theta)}{\sin{\theta}} \frac{\delta\left(\left|\mathbf{r} - \mathbf{x}\right| - \Delta\right)}{4\pi\left|\mathbf{r} - \mathbf{x}\right|}
 \ee
 To evaluate the delta function, we use the following identity:
 \[
@@ -113,7 +113,7 @@ where $\gamma$ is the angle between $\mathbf{r}$ and $\mathbf{x}$. Using the sph
 \]
 The whole function becomes
 \be
-    F_{B1}(\mathbf{x}) = \int \mathrm{d}\theta\, \mathrm{d}\phi\, \mathrm{d}r\, r^2 \, R(r) \delta(\theta) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{\sqrt{r^2 + x^2 - 2rx \cos\gamma}}
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}\theta\, \mathrm{d}\phi\, \mathrm{d}r\, r^2 \, R(r) \delta(\theta) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi\sqrt{r^2 + x^2 - 2rx \cos\gamma}}
 \ee
 The solutions of $\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta = 0$ are
 \[
@@ -133,9 +133,33 @@ We mention before, we only need the positive real solutions. So now we discuss w
     \hline
   \end{tabular}
 \end{center}
-Then we do another simplification, that is $\gamma = 0, \pi$, i.e., align $\mathbf{x}$ on the axis of $\mathbf{r}$. The reason we do this simplification is that we wonder how should Bob measure the field on the axis where also should has the most significant non-isotropic phenonenon.
+Then we do another simplification, that is $\theta_x = 0, \pi$, i.e., align $\mathbf{x}$ on the axis of $\mathbf{r}$. The reason we do this simplification is that we wonder how should Bob measure the field on the axis where also should has the most significant non-isotropic phenonenon.
 \subsection{Result}
-
+Since we set $\theta_x = 0, \pi$ and the delta function we mention before, we can rewrite $\cos\gamma$ as $1, -1$, and $r_\pm$ as $x \pm \Delta, - x \pm \Delta$. We now derive the $F_{B1}$ explicitly.
+\begin{align}
+    F_{B1}(\mathbf{x}) &= - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+                       &= - \frac{1}{2} \sum \frac{r_{\pm}^2 R(r_{\pm})}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}} \frac{1}{\frac{r_{\pm} - x\cos\gamma}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}}} \notag \\
+                       &= 
+                       \begin{cases}
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} - x} R(r_{\pm}) & \text{if } \theta_x = 0 \\
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} + x} R(r_{\pm}) & \text{if } \theta_x = \pi \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2} \frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2} \left(\frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) + \frac{(x - \Delta)^2}{(x - \Delta) - x} R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2} \frac{(\Delta - x)^2}{(\Delta - x) + x} R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2\Delta} (x + \Delta)^2 R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2\Delta} \left((x + \Delta)^2 R(x + \Delta) - (x - \Delta)^2 R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2\Delta} (\Delta - x)^2 R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+\end{align}
+We can try to plug in the Gaussian function. And get fallowing figure,
 
 \appendix
 
