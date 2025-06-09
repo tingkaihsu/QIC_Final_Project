@@ -1,13 +1,15 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
-\linenumbers
+\usepackage{indentfirst}
+
+% \linenumbers
 
 
 
-\arxivnumber{1234.56789} % if you have one
+% \arxivnumber{1234.56789} % if you have one
 
-\title{\boldmath A title with some math: $x=1$}
+\title{QIC Final Project: Anisotropic Transmission of quantum information through quantum fields}
 
 % Collaborations
 
@@ -38,114 +40,130 @@
 %% \affiliation[b]{Institution_2,\\Address, Country}
 %% \affiliation[c]{Institution_3,\\Address, Country}
 
-\author{}
-\affiliation{One University,\\
-some-street, Country}
-\affiliation{Another University,\\
-different-address, Country}
+\author{T. Hsu}
+\affiliation{National Taiwan University,\\
+Taipei, Taiwan}
+% \affiliation{Another University,\\
+% different-address, Country}
 
 % E-mail addresses: only for the corresponding author
-\emailAdd{first@one.univ}
+\emailAdd{b11901097@ntu.edu.tw}
 
-\abstract{Abstract...}
+\abstract{In this letter, we briefly review the possible way to transmit the quantum information via quantum fields \cite{PhysRevD.101.036014}, and then we discuss }
 
 
 
 \begin{document}
 \maketitle
 \flushbottom
+% \section{Path Integral in Euclidean Signature}
+\section{Quantum Channel: Via Quantum Mechanics}
+In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics posulates.
+In this letter, we focus on the transmission of a qubit from a spacetime emitter Alice $ A $ to a receiver Bob $ B $.
 
-\section{Some examples}
-\label{sec:intro}
+There are various ways to transmit a qubit without contacting, which are based on the \textit{resources} Alice and Bob share.
+For instance, if an entagled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
+Here, we simply consider transmisstion by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
+Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
+The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
 
-For internal references use label-refs: see section~\ref{sec:intro}.
-Bibliographic citations can be done with "cite": refs.~\cite{a,b,c}.
-When possible, align equations on the equal sign. The package
-\texttt{amsmath} is already loaded. See \eqref{eq:x}.
-\begin{equation}
-\label{eq:x}
-\begin{aligned}
-x &= 1 \,,
-\qquad
-y = 2 \,,
-\\
-z &= 3 \,.
-\end{aligned}
-\end{equation}
-Also, watch out for the punctuation at the end of the equations.
+The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $:
+\be
+    U \rho_{ A, 0 } \otimes \rho_{ C, 0 } U^{\dagger} = \rho_{ C, 0 } \otimes \rho_{ A, 0 }
+\ee
 
 
-If you want some equations without the tag (number), please use the available
-starred-environments. For example:
-\begin{equation*}
-x = 1
-\end{equation*}
+\textbf{Remark: }
+The transmission of qubit described above is rather trivial; however, it is based on an important fact that the dimension of the Hilbert space of $ C $ is the same as those of the Hilbert space of $ A $ and $ B $, so there is an isomorphism between the Hilbert spaces.
+As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
+\section{Quantum Channel: Via Quantum Fields}
+\subsection{Brief Review on Quantum Field Theory}
+\subsection{Unruh-DeWitt model}
 
-\section{Figures and tables}
+\section{Non-isotropic Smearing Function}
+\subsection{Problem Setup}
+The smearing function used in the paper is isotropic (i.e., $F_A = \frac{1}{\sqrt{\pi}\sigma} \exp\left(-\frac{|\mathbf{x}|^2}{\sigma^2}\right)$), which leads to isotropic propagation of information. In our study, we aim to investigate whether employing a non-isotropic smearing function could lead to different behavior.
 
-All figures and tables should be referenced in the text and should be
-placed on the page where they are first cited or in
-subsequent pages. Positioning them in the source file
-after the paragraph where you first reference them usually yield good
-results. See figure~\ref{fig:i} and table~\ref{tab:i} for layout examples. 
-Please note that a caption is mandatory  and it must be placed at the bottom of both figures and tables.
+As a first step, we consider a smearing function $F_A$ with axial symmetry, i.e., $F_A = R(r)\Theta(\theta)$.
+And do fallowing simplification, 
+\begin{enumerate}
+  \item $R(r)$ is localized at $r = 0$, i.e., $R(r \rightarrow \infty) = 0$
+  \item $\Theta(\theta) = \frac{\delta(\theta)}{\sin{\theta}}$,
+\end{enumerate}
+where the $\frac{1}{\sin\theta}$ factor arises from the solid angle element in spherical coordinates.
+The reason of first simplification is that Alice should not able to encode the information with the infinite range. And the reason of second simplification is the delta function should provide a well non-isotropic condition.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.4\textwidth]{example-image-a}
-\qquad
-\includegraphics[width=.4\textwidth]{example-image-b}
-\caption{Always give a caption.\label{fig:i}}
-\end{figure}
+Under this construction, the smearing function $F_{B1}$ becomes
+\be
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\phi\, r^2 \sin{\theta} \, R(r)\frac{\delta(\theta)}{\sin{\theta}} \frac{\delta\left(\left|\mathbf{r} - \mathbf{x}\right| - \Delta\right)}{4\pi\left|\mathbf{r} - \mathbf{x}\right|}
+\ee
+To evaluate the delta function, we use the following identity:
+\[
+    \int \mathrm{d}x g(x) \delta(f(x)) = \int \mathrm{d}f \frac{g}{\left|f'\right|} \delta(f) = \sum_i\frac{g(x_i0)}{\left|f'(x_{i0})\right|}
+\]
+where $x_{i0}$ are all $x$ within the domain of integration which satisfy $f(x_{i0}) = 0$. Since in our case, we only integrate over positive real values of $r$, we only consider the solutions $r \in \mathbb{R}^+$ in the following calculation.
 
-\begin{table}[htbp]
-\centering
-\begin{tabular}{lr|c}
-\hline
-x&y&x and y\\
-\hline
-a & b & a and b\\
-1 & 2 & 1 and 2\\
-$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
-\hline
-\end{tabular}
-\caption{We prefer to have top and bottom borders around the tables.\label{tab:i}}
-\end{table}
-
-We discourage the use of inline figures (e.g. \texttt{wrapfigure}), as they may be
-difficult to position if the page layout changes.
-
-We suggest not to abbreviate: ``section'', ``appendix'', ``figure''
-and ``table'', but ``eq.'' and ``ref.'' are welcome. Also, please do
-not use \texttt{\textbackslash emph} or \texttt{\textbackslash it} for
-latin abbreviaitons: i.e., et al., e.g., vs., etc.
-
-
-\paragraph{Up to paragraphs.} We find that having more levels usually
-reduces the clarity of the article. Also, we strongly discourage the
-use of non-numbered sections (e.g.~\texttt{\textbackslash
-  subsubsection*}).  Please also consider the use of
-``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
-from the \texttt{hyperref} package when you have math in the section titles.
-
-
+Before proceeding, we need to express $|\mathbf{r} - \mathbf{x}|$ in terms of $(r, \theta, \phi)$, so that we can perform the integration explicitly. Given that the smearing function is axially symmetric, we align $\mathbf{x}$ along the $\phi = 0$ plane, i.e., we choose coordinates such that $\mathbf{x} = (x, \theta_x, 0)$, since any $\mathbf{x} = (x, \theta_x, \phi)$ yields the same value due to the symmetry. Then, the distance between $\mathbf{r}$ and $\mathbf{x}$ can be written as
+\[
+|\mathbf{r} - \mathbf{x}| = \sqrt{r^2 + x^2 - 2rx \cos\gamma},
+\]
+where $\gamma$ is the angle between $\mathbf{r}$ and $\mathbf{x}$. Using the spherical coordinate expression for the angle between two vectors, we have
+\[
+\cos\gamma = \cos\theta \cos\theta_x + \sin\theta \sin\theta_x \cos\phi.
+\]
+The whole function becomes
+\be
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}\theta\, \mathrm{d}\phi\, \mathrm{d}r\, r^2 \, R(r) \delta(\theta) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi\sqrt{r^2 + x^2 - 2rx \cos\gamma}}
+\ee
+The solutions of $\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta = 0$ are
+\[
+    r_\pm = x\cos\gamma \pm \sqrt{x^2 \cos^2\gamma - (x^2 - \Delta^2)}
+\]
+We mention before, we only need the positive real solutions. So now we discuss when will $r_\pm$ be positive, when will be negative, or even be complex.
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $\cos{\gamma} > 0$ & $\Delta^2 > x^2$ & $\left|\sin\gamma\right| < \frac{\Delta}{x}$ & remain solutions & reason of unavalible\\
+    \hline\hline
+    True & True & - & + & $\mathbb{R^-}$\\
+    True & False & True & $\pm$ & -\\
+    True & False & False & 0 & $\mathbb{C-R}$\\
+    False & True & - & + & $\mathbb{R^-}$\\
+    False & False & - & 0 & $\mathbb{R^-}$\\
+    \hline
+  \end{tabular}
+\end{center}
+Then we do another simplification, that is $\theta_x = 0, \pi$, i.e., align $\mathbf{x}$ on the axis of $\mathbf{r}$. The reason we do this simplification is that we wonder how should Bob measure the field on the axis where also should has the most significant non-isotropic phenonenon.
+\subsection{Result}
+Since we set $\theta_x = 0, \pi$ and the delta function we mention before, we can rewrite $\cos\gamma$ as $1, -1$, and $r_\pm$ as $x \pm \Delta, - x \pm \Delta$. We now derive the $F_{B1}$ explicitly.
+\begin{align}
+    F_{B1}(\mathbf{x}) &= - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+                       &= - \frac{1}{2} \sum \frac{r_{\pm}^2 R(r_{\pm})}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}} \frac{1}{\frac{r_{\pm} - x\cos\gamma}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}}} \notag \\
+                       &= 
+                       \begin{cases}
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} - x} R(r_{\pm}) & \text{if } \theta_x = 0 \\
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} + x} R(r_{\pm}) & \text{if } \theta_x = \pi \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2} \frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2} \left(\frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) + \frac{(x - \Delta)^2}{(x - \Delta) - x} R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2} \frac{(\Delta - x)^2}{(\Delta - x) + x} R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2\Delta} (x + \Delta)^2 R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2\Delta} \left((x + \Delta)^2 R(x + \Delta) - (x - \Delta)^2 R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2\Delta} (\Delta - x)^2 R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+\end{align}
+We can try to plug in the Gaussian function. And get fallowing figure,
 
 \appendix
-\section{Some title}
-Please always give a title also for appendices.
-
-
-
-
 
 \acknowledgments
-
-This is the most common positions for acknowledgments. A macro is
-available to maintain the same layout and spelling of the heading.
-
-\paragraph{Note added.} This is also a good position for notes added
-after the paper has been written.
-
 
 % Bibliography
 
@@ -161,23 +179,16 @@ after the paper has been written.
 %% "and references therein" or move them in the text. In general, please leave only references in the bibliography and move all
 %% accessory text in footnotes.
 %% (iii) Also, please have only one work for each \bibitem.
+\bibliographystyle{plain}
+\bibliography{ref}
 
-\begin{thebibliography}{99}
-
-\bibitem{a}
-Author,
-\emph{Title},
-\emph{J. Abbrev.} {\bf vol} (year) pg.
-
-\bibitem{b}
-Author,
-\emph{Title},
-arxiv:1234.5678.
-
-\bibitem{c}
-Author,
-\emph{Title},
-Publisher (year).
-
-\end{thebibliography}
+% Example reference entry in ref.bib
+% @article{example_reference,
+%   author = {Author Name},
+%   title = {Example Title},
+%   journal = {Example Journal},
+%   year = {2023},
+%   volume = {1},
+%   pages = {1--10}
+% }
 \end{document}
