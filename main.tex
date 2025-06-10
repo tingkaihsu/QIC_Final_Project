@@ -251,8 +251,44 @@ The non-perturbative couplings between the detectors and the field is a necessar
 \ee
 
 \subsection*{Qubit in a Field: Encoding}
+We call the gate encoding a qubit into a field an ENCODE gate, rather than a SWAP gate in the previous section, and similarly for the DECODE gate.
+Now, Alice's detector need to be coupled to the real scalar field at time $t_A$ and with the spatial extent given by the support of the smearing function $F_A( \mb x )$.
+Suppose, initially, the field is in the vacuum state $ | \text{VAC} \ar $, and Alice's qubit is $ c_1 | +_z \ar + c_2 | -_z \ar $.
+The qubit-field interaction is given by:
+
+\be
+\begin{gathered}
+    \hat H_A ( t ) = \lambda_{ \phi } \delta( t - t_A^- ) \hat \sigma_z \otimes \int{} d^3 \mb x F_A( \mb x ) \hat \phi ( \mb x, t ) \\
+    +\lambda_{ \pi } \delta( t - t_A^+ ) \hat \sigma_z \otimes \int{} d^3 \mb x F_A( \mb x ) \hat \pi ( \mb x, t )
+\end{gathered}
+\ee
+where the times $ t^{\pm}_A \approx t_A$ such that $t_A^-$ is slightly smaller than $t_A^+$.
+Therefore, the time evolution operator is:
+\be
+    \hat U_A = \exp \lt( i \hat \sigma_x \otimes \hat \pi_A \rt)\exp \lt( i \hat \sigma_z \otimes \hat \phi_A \rt)
+\ee
+
+where $\hat \phi_A$ and $\hat \pi_A$ are smeared field observables:
+
+\be
+\begin{gathered}
+    \hat \phi_A := \lambda_\phi \int{} d^3\mb{ x } F_{A}( \mb x ) \hat \phi ( \mb x, t_A )\\
+    \hat \pi_A := \lambda_\pi \int{} d^3\mb{ x } F_{A}( \mb x ) \hat \pi ( \mb x, t_A )
+\end{gathered}
+\ee
+
+Acting on the initial state $ ( c_1 | +_z \ar + c_2 | -_z \ar ) \otimes | \text{VAC} \ar $ with the rightmost exponential in $ \hat U_A $ results in the state:
+\be
+    c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar  
+\ee
+where $ | \alpha^{ \pm }_A \ar $ are defined by:
+
+\be
+    | \alpha^{ \pm }_A \ar := \exp\lt( \pm i \hat \phi_A \rt) | \text{VAC} \ar
+\ee
 
 \subsection*{Qubit out of a Field: Decoding}
+
 
 \section{Broadcasting Quantum Information}
 
