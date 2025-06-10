@@ -62,7 +62,7 @@ In this letter, we focus on the transmission of a qubit from a spacetime emitter
 
 There are various ways to transmit a qubit without contacting, which are based on the \textit{resources} Alice and Bob share.
 For instance, if an entangled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
-Here, we simply consider transmisstion by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
+Here, we simply consider transmission by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
 Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
 The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
 
@@ -185,7 +185,7 @@ Again, we can simultaneously diagonalize the Hamiltonian and the number operator
 
 The pre-factor is here to hold the Lorentz invariance of one particle state.
 
-The non-trivial part of quantum field theory is the physical states, we have vacuum state, one-particle states, multi-particle states, and they do not correspond to a single Hilbert space, but a tensor product of Hilbert spaces, called Fock space.
+The non-trivial part of quantum field theory is the physical states, we have vacuum state, one-particle states, multi-particle states, and they do not correspond to a single Hilbert space, but a direct sum of Hilbert spaces, called Fock space.
 If a creator is acted on one-particle state, we expect it to be a two-particle state:
 \be
     \hat a^{ \dagger } ( \mb q ) | \mb p \ar = | \mb q \ar \otimes | \mb p \ar
@@ -206,7 +206,49 @@ The transmission of quantum information via quantum fields is more complicated t
 In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
 It is used to explain the Unruh-effect of horizon, and here it is used to construct the transmission system.
 Suppose the quantum detectors (it can be physically realized by atomic orbital of crystal) carried by Alice and Bob are localized at spacetime points, and they are coupled to the real scalar quantum field $\phi( \mb x, t )$.
+First, consider the realization of qubit in the quantum detector $ \nu = \{A, B\} $, a convenient choice is the Pauli z-operator \cite{PhysRevD.101.036014}.
+The qubits are realized by the eigenstates of the free Hamiltonian, which is $ \hat H_{ \nu } = \omega_\nu \hat \sigma_z $:
+\be
+    \hat H_{ \nu } | \pm_{ z, \nu } \ar = \pm \omega_{ \nu } | \pm_{ z, \nu } \ar
+\ee
+
+Then, the interaction between detectors and the field can be described by a local interaction:
+\be
+    \hat H_{ \nu }( t ) = \lambda \chi( t ) \hat m_\nu( t ) \otimes \hat{ \mc{ O } }_\nu ( t )
+\ee
+
+$ \lambda $ is a coupling constant, $\chi ( t )$ is an switching function that smoothly controls the time duration of interaction, and $\hat m_\nu( t )$ and $\hat{ \mc{ O } }_\nu ( t )$ are detector and field observables.
+
+The field observables should be local in spacetime, and it is realized by smearing function:
+\be
+    \hat{ \mc{ O } }_\nu ( t ) = \int{} d^{3} \mb{ x } F_{ \nu } ( \mb x ) \hat{ \mc{ O } } ( \mb x, t )
+\ee
+
+The smearing function must have support in the region of space at time $t$ where the observers are located.
+Note that we have to choose a picture to track the time-dependence of the quantum states and operators, see appendix for more information.
+The time-evolution operator of state by this interaction Hamiltonian is:
+\be
+    \hat U_{ \nu } = \mc{ T } \exp \lt[ -i \int_{-\infty}^{\infty} dt \hat H_{ \nu }( t ) \rt]
+\ee
+
+where $ \mc{ T } $ denotes the time-ordering. 
+
+When the coupling constant $\lambda << 1$, we can use the perturbation theory to approximate the evolution up to a desired order.
+However, as we shall see, this is not the case for transmission of quantum information, so we must deal with this evolution problem with non-perturbative technique.
+An simplification of interaction as an example, if the quantum detector only interacts with the quantum field at discrete instants in time, that is, the switching function of the quantum detector is $ \chi ( t ) = \sum_{ i = 1 }^{ n } \delta ( t - t_i )$ with $ t_i < t_{ i + 1 } $.
+Then the time evolution operator can be expressed as $ \hat U = \hat U_n \cdots \hat U_1 $:
+\be
+    \hat U_{ \nu, i } = \exp \lt[ -i \lambda \hat m_\nu ( t_i ) \otimes \hat{ \mc{ O } }_{ \nu } ( t_i )\rt]
+\ee
+
+This expression is exact analytical. 
+
 \subsection*{Strong Coupling Condition}
+The non-perturbative couplings between the detectors and the field is a necessary condition to construct a perfect quantum channel:
+
+\be
+    Q( \Xi  ) = 0 + \mc{ O } ( \lambda )
+\ee
 
 \subsection*{Qubit in a Field: Encoding}
 
@@ -231,7 +273,7 @@ Suppose the quantum detectors (it can be physically realized by atomic orbital o
 %% or
 %% [B] Manual formatting (see below)
 %% (i) We suggest to always provide author, title and journal data or doi:
-%% in short all the informations that clearly identify a document.
+%% in short all the information that clearly identify a document.
 %% (ii) please avoid comments such as "For a review'', "For some examples",
 %% "and references therein" or move them in the text. In general, please leave only references in the bibliography and move all
 %% accessory text in footnotes.
