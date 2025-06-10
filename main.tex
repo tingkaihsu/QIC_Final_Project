@@ -1,10 +1,14 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
+\usepackage{physics}
 \usepackage{indentfirst}
-
+\usepackage{subfigure} % In the preamble
 % \linenumbers
 
+\setlength{\itemsep}{0pt}
+%\setlength{\parskip}{0pt}
+%\setlength{\parsep}{0pt}
 
 
 % \arxivnumber{1234.56789} % if you have one
@@ -172,6 +176,48 @@ For real scalar field theory, the Fock space can be written as the direct sum of
 
 Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, which corresponds to the vacuum state.
 The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
+\subsection*{The Interaction Picture in QFT}
+
+In quantum field theory, the interaction picture provides a convenient framework for performing perturbative calculations. It lies between the Schrödinger and Heisenberg pictures:
+
+\begin{itemize}
+    \item In the Schrödinger picture: states evolve in time, operators are constant.
+    \item In the Heisenberg picture: operators evolve in time, states are constant.
+    \item In the interaction picture: both states and operators evolve, but with different parts of the Hamiltonian.
+\end{itemize}
+
+\subsubsection*{Hamiltonian Decomposition}
+
+Let the total Hamiltonian be split as:
+\begin{equation}
+H = H_0 + H_{\text{int}},
+\end{equation}
+where:
+\begin{itemize}
+    \item $H_0$: free (non-interacting) Hamiltonian
+    \item $H_{\text{int}}$: interaction Hamiltonian
+\end{itemize}
+
+The time evolution of operators and states is governed as follows:
+
+\subsubsection*{Operators}
+
+Operators evolve with the free Hamiltonian:
+\begin{equation}
+\mathcal{O}_I(t) = e^{i H_0 t} \, \mathcal{O}_S \, e^{-i H_0 t},
+\end{equation}
+where $\mathcal{O}_S$ is the operator in the Schrödinger picture.
+
+\subsubsection*{States}
+
+States evolve with the interaction Hamiltonian:
+\begin{equation}
+i \frac{d}{dt} \ket{\psi(t)}_I = H_I(t) \ket{\psi(t)}_I,
+\end{equation}
+where the interaction Hamiltonian in the interaction picture is:
+\begin{equation}
+H_I(t) = e^{i H_0 t} H_{\text{int}} e^{-i H_0 t}.
+\end{equation}
 
 \subsection*{Unruh-DeWitt model}
 In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
@@ -219,7 +265,6 @@ The transmission of qubit described above is rather trivial; however, it is base
 As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
 
 \section{Quantum Channel: Via Quantum Fields}
-<<<<<<< HEAD
 \subsection{Brief Review on Quantum Field Theory}
 \subsection{Unruh-DeWitt model}
 
@@ -304,7 +349,52 @@ Since we set $\theta_x = 0, \pi$ and the delta function we mention before, we ca
 \end{align}
 We can try to plug in the Gaussian function. And get fallowing figure,
 
-to calculate \(F_{B2}, F_{B3}\)
+to calculate \(F_{B2}, F_{B3}\), we could explicitly write out what they are, 
+\begin{equation}
+    F_{B2}(\mathbf{x}) = - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta '\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+\end{equation}
+\begin{equation}
+    F_{B3}(\mathbf{x}) = - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta ''\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+\end{equation}
+where \(\displaystyle \delta '(x) = \frac{d \delta(x)}{d x}\) and \(\displaystyle \delta '''(x) = \frac{d^2 \delta(x)}{d x^2}\). Note that is derivative is differential over x, in the original equation, it becomes differentialing over \(\sqrt{r^2 + x^2 - 2rx \cos{\gamma}}\). Thus we need to do a change of variable, Chain rule, to change the variable to \(r\). After these messy calculation, we obtain the following equations
+\begin{equation}
+    F_{B2}(\mathbf{x}) = \int \frac{1}{\Delta}\left(\delta '(r - r_+) + \delta '(r - r_-) \right)g(r) r^2 R(r) \mathrm{d} r 
+\end{equation}
+\begin{equation}
+    F_{B3}(\mathbf{x}) = \int \frac{1}{\Delta}\left(g(r) (\delta '(r - r_+) + \delta '(r - r_-)) \right) g(r) r^2 R(r) \mathrm{d} r 
+\end{equation}
+where \(g(r) = \frac{d r}{d \sqrt{r^2 + x^2 - 2rx \cos{\gamma}}}\).
+By using the following properties of Dirac delta function,
+\begin{align}
+    &\int \mathrm{d} x \, \delta '(x-a) f(x) = f'(a)\\
+    &\int \mathrm{d} x \, \delta ''(x-a) f(x) = f''(a)
+\end{align}
+we obtain 
+\begin{align*}
+    F_{B2}(\mathbf{x}) &= \frac{\Delta  (\Delta -x) e^{-\frac{(x-\Delta )^2}{\sigma ^2}} \left((x-\Delta )^2-\sigma ^2\right)}{\sqrt{\Delta ^2} \sigma ^2}\operatorname{sgn}(x - \Delta)\\ &+\frac{\Delta  (\Delta +x) e^{-\frac{(\Delta +x)^2}{\sigma ^2}} \left((\Delta +x)^2-\sigma ^2\right)}{\sqrt{\Delta ^2} \sigma ^2} \operatorname{sgn}(x + \Delta)
+\end{align*}
+
+{\footnotesize\begin{align*}
+    F_{B3}(\mathbf{x}) &= \frac{e^{-\frac{(x-\Delta )^2}{\sigma ^2}} \left(-5 \Delta ^2 \sigma ^2+2 \Delta ^4+\sigma ^4+x^2 \left(12 \Delta ^2-5 \sigma ^2\right)-8 \Delta  x^3+2 x^4+x \left(10 \Delta  \sigma ^2-8 \Delta ^3\right)\right)}{\sigma ^4}\operatorname{sgn}(x - \Delta)\\
+    &+\frac{e^{-\frac{(\Delta +x)^2}{\sigma ^2}} \left(-5 \Delta ^2 \sigma ^2+2 \Delta ^4+\sigma ^4+x^2 \left(12 \Delta ^2-5 \sigma ^2\right)+8 \Delta  x^3+2 x^4+2 x \left(4 \Delta ^3-5 \Delta  \sigma ^2\right)\right)}{\sigma ^4}\operatorname{sgn}(x + \Delta) 
+\end{align*}}
+The figure of both is plotted below, we can see that it is indeed surviving in the \(\theta = 0\) direction and \(\theta = \pi\) direction. Thus we can't make a isotropic quantum teleportation via this setup.
+
+\begin{figure}[htbp]
+    \centering
+    \subfigure[FB2]{
+        \includegraphics[width=0.45\textwidth]{FB2.pdf}
+        \label{fig:sub1}
+    }
+    \hfill
+    \subfigure[FB3]{
+        \includegraphics[width=0.45\textwidth]{FB3.pdf}
+        \label{fig:sub2}
+    }
+    \caption{Comparison of FB2 and FB3}
+    \label{fig:combined}
+\end{figure}
+
 \appendix
 
 \acknowledgments

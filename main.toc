@@ -1,8 +1,8 @@
-\contentsline {section}{\numberline {1}Broadcasting Quantum Information}{4}{section.1}%
-\contentsline {section}{\numberline {2}Quantum Channel: Via Quantum Mechanics}{4}{section.2}%
-\contentsline {section}{\numberline {3}Quantum Channel: Via Quantum Fields}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Brief Review on Quantum Field Theory}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Unruh-DeWitt model}{5}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Non-isotropic Smearing Function}{5}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Problem Setup}{5}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Result}{7}{subsection.4.2}%
+\contentsline {section}{\numberline {1}Broadcasting Quantum Information}{5}{section.1}%
+\contentsline {section}{\numberline {2}Quantum Channel: Via Quantum Mechanics}{5}{section.2}%
+\contentsline {section}{\numberline {3}Quantum Channel: Via Quantum Fields}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Brief Review on Quantum Field Theory}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Unruh-DeWitt model}{6}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Non-isotropic Smearing Function}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Problem Setup}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Result}{8}{subsection.4.2}%
