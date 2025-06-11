@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
+\usepackage{physics}
 \usepackage{indentfirst}
 \usepackage{subcaption} % Add this for subfigure environment
 \usepackage{float} % Add this for the [H] float placement option
@@ -9,6 +10,9 @@
 \newtheorem{theorem}{Theorem}
 % \linenumbers
 
+\setlength{\itemsep}{0pt}
+%\setlength{\parskip}{0pt}
+%\setlength{\parsep}{0pt}
 
 
 % \arxivnumber{1234.56789} % if you have one
@@ -45,6 +49,8 @@
 %% \affiliation[c]{Institution_3,\\Address, Country}
 
 \author{T. Hsu}
+\author{, Jie-Da Tsai}
+\author{and Shen-Rong Liao}
 \affiliation{National Taiwan University,\\
 Taipei, Taiwan}
 % \affiliation{Another University,\\
@@ -52,10 +58,6 @@ Taipei, Taiwan}
 
 % E-mail addresses: only for the corresponding author
 \emailAdd{b11901097@ntu.edu.tw}
-
-\abstract{In this letter, we briefly review the possible way to transmit the quantum information via quantum fields \cite{PhysRevD.101.036014}, and then we discuss }
-
-
 
 \begin{document}
 \maketitle
@@ -207,6 +209,48 @@ For real scalar field theory, the Fock space can be written as the direct sum of
 
 Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, which corresponds to the vacuum state.
 The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
+\subsection*{The Interaction Picture in QFT}
+
+In quantum field theory, the interaction picture provides a convenient framework for performing perturbative calculations. It lies between the Schrödinger and Heisenberg pictures:
+
+\begin{itemize}
+    \item In the Schrödinger picture: states evolve in time, operators are constant.
+    \item In the Heisenberg picture: operators evolve in time, states are constant.
+    \item In the interaction picture: both states and operators evolve, but with different parts of the Hamiltonian.
+\end{itemize}
+
+\subsubsection*{Hamiltonian Decomposition}
+
+Let the total Hamiltonian be split as:
+\begin{equation}
+H = H_0 + H_{\text{int}},
+\end{equation}
+where:
+\begin{itemize}
+    \item $H_0$: free (non-interacting) Hamiltonian
+    \item $H_{\text{int}}$: interaction Hamiltonian
+\end{itemize}
+
+The time evolution of operators and states is governed as follows:
+
+\subsubsection*{Operators}
+
+Operators evolve with the free Hamiltonian:
+\begin{equation}
+\mathcal{O}_I(t) = e^{i H_0 t} \, \mathcal{O}_S \, e^{-i H_0 t},
+\end{equation}
+where $\mathcal{O}_S$ is the operator in the Schrödinger picture.
+
+\subsubsection*{States}
+
+States evolve with the interaction Hamiltonian:
+\begin{equation}
+i \frac{d}{dt} \ket{\psi(t)}_I = H_I(t) \ket{\psi(t)}_I,
+\end{equation}
+where the interaction Hamiltonian in the interaction picture is:
+\begin{equation}
+H_I(t) = e^{i H_0 t} H_{\text{int}} e^{-i H_0 t}.
+\end{equation}
 
 \subsection*{Unruh-DeWitt model}
 In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
@@ -473,9 +517,6 @@ On the other hand, the condition on $\gamma_A$ is a fine-tuning condition, which
 % Despite our successes so far, there still remain two pertinent issues that must be addressed before one can be fully satisfied with our construction of a perfect, field-mediated quantum channel from Alice to Bob. First, it should be verified, without the use of any approximations (such as the one in Eq.~\eqref{eq:eigenvalue_equation_2}), that our supposedly perfect quantum channel $\Xi$ indeed has a maximal quantum channel capacity of $\mathcal Q(\Xi)=1$. And second, the smearing functions $F_{\textsc{b}i}(\mb x)$ are defined in terms of their Fourier transforms, and hence it is presently not clear where in space Bob needs to be located in order to receive Alice's quantum message, which is crucial for our study. We will successively address these two remaining issues in Sec.~\ref{sec:testing_quantum_channel} and Sec.~\ref{sec:where_does_q_info_propagate}.
 
 
-\section{Broadcasting Quantum Information}
-
-
 \section{Non-isotropic Smearing Function}
 \subsection{Problem Setup}
 The smearing function used in the paper is isotropic (i.e., $F_A = \frac{1}{\sqrt{\pi}\sigma} \exp\left(-\frac{|\mathbf{x}|^2}{\sigma^2}\right)$), which leads to isotropic propagation of information. In our study, we aim to investigate whether employing a non-isotropic smearing function could lead to different behavior.
@@ -635,10 +676,28 @@ The figure of both is plotted below, we can see that it is indeed surviving in t
 %     \caption{Comparison of FB2 and FB3}
 %     \label{fig:combined}
 % \end{figure}
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{FB2.pdf}
+        \caption{FB2}
+        \label{fig:sub1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{FB3.pdf}
+        \caption{FB3}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Comparison of FB2 and FB3}
+    \label{fig:combined}
+\end{figure}
 
+\section{Conclusion}
+In this article, we have reviewed how we could utilize quantum field theory to send qubits while inherently preserving Lorentz invariance and causality. By using the ENCODE gate, we successfully entangle Alice's qubit with the ancilla bit to transfer the state on to the ancilla bit. Then applying the DECODE gate to retrieve the initial state on to Bob's system. With this method, we observe that the smearing function is isotropic and thus we need to put detectors everywhere around to retrieve the information. We then attempt a non-isotropic smearing function for ALice to solve this issue, but what we obtained was similar with the previous one. There are still information propagating in the \(\theta = 0\) direction and \(\theta = \pi\) direction which we don't want.
 \appendix
-
-\acknowledgments
+\section{Presentation Video} 
+The video link is provide as follow \url{https://youtu.be/Fz1h0Mn5ZvE}.
 
 % Bibliography
 
