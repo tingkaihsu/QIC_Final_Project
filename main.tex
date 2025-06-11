@@ -2,6 +2,9 @@
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
 \usepackage{indentfirst}
+\usepackage{subcaption} % Add this for subfigure environment
+\usepackage{float} % Add this for the [H] float placement option
+
 % \linenumbers
 
 
@@ -326,9 +329,166 @@ then
 
 \section{Broadcasting Quantum Information}
 
-\subsection*{Isotropic Smearing Function}
 
-\subsection*{Anisotropic Smearing Function}
+\section{Non-isotropic Smearing Function}
+\subsection{Problem Setup}
+The smearing function used in the paper is isotropic (i.e., $F_A = \frac{1}{\sqrt{\pi}\sigma} \exp\left(-\frac{|\mathbf{x}|^2}{\sigma^2}\right)$), which leads to isotropic propagation of information. In our study, we aim to investigate whether employing a non-isotropic smearing function could lead to different behavior.
+
+As a first step, we consider a smearing function $F_A$ with axial symmetry, i.e., $F_A = R(r)\Theta(\theta)$.
+And do fallowing simplification, 
+\begin{enumerate}
+  \item $R(r)$ is localized at $r = 0$, i.e., $R(r \rightarrow \infty) = 0$
+  \item $\Theta(\theta) = \frac{\delta(\theta)}{\sin{\theta}}$,
+\end{enumerate}
+where the $\frac{1}{\sin\theta}$ factor arises from the solid angle element in spherical coordinates.
+The reason of first simplification is that Alice should not able to encode the information with the infinite range. And the reason of second simplification is the delta function should provide a well non-isotropic condition.
+
+Under this construction, the smearing function $F_{B1}$ becomes
+\be
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}r\, \mathrm{d}\theta\, \mathrm{d}\phi\, r^2 \sin{\theta} \, R(r)\frac{\delta(\theta)}{\sin{\theta}} \frac{\delta\left(\left|\mathbf{r} - \mathbf{x}\right| - \Delta\right)}{4\pi\left|\mathbf{r} - \mathbf{x}\right|}
+\ee
+To evaluate the delta function, we use the following identity:
+\[
+    \int \mathrm{d}x g(x) \delta(f(x)) = \int \mathrm{d}f \frac{g}{\left|f'\right|} \delta(f) = \sum_i\frac{g(x_i0)}{\left|f'(x_{i0})\right|}
+\]
+where $x_{i0}$ are all $x$ within the domain of integration which satisfy $f(x_{i0}) = 0$. Since in our case, we only integrate over positive real values of $r$, we only consider the solutions $r \in \mathbb{R}^+$ in the following calculation.
+
+Before proceeding, we need to express $|\mathbf{r} - \mathbf{x}|$ in terms of $(r, \theta, \phi)$, so that we can perform the integration explicitly. Given that the smearing function is axially symmetric, we align $\mathbf{x}$ along the $\phi = 0$ plane, i.e., we choose coordinates such that $\mathbf{x} = (x, \theta_x, 0)$, since any $\mathbf{x} = (x, \theta_x, \phi)$ yields the same value due to the symmetry. Then, the distance between $\mathbf{r}$ and $\mathbf{x}$ can be written as
+\[
+|\mathbf{r} - \mathbf{x}| = \sqrt{r^2 + x^2 - 2rx \cos\gamma},
+\]
+where $\gamma$ is the angle between $\mathbf{r}$ and $\mathbf{x}$. Using the spherical coordinate expression for the angle between two vectors, we have
+\[
+\cos\gamma = \cos\theta \cos\theta_x + \sin\theta \sin\theta_x \cos\phi.
+\]
+The whole function becomes
+\be
+    F_{B1}(\mathbf{x}) = - \int \mathrm{d}\theta\, \mathrm{d}\phi\, \mathrm{d}r\, r^2 \, R(r) \delta(\theta) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi\sqrt{r^2 + x^2 - 2rx \cos\gamma}}
+\ee
+The solutions of $\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta = 0$ are
+\[
+    r_\pm = x\cos\gamma \pm \sqrt{x^2 \cos^2\gamma - (x^2 - \Delta^2)}
+\]
+We mention before, we only need the positive real solutions. So now we discuss when will $r_\pm$ be positive, when will be negative, or even be complex.
+\begin{center}
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $\cos{\gamma} > 0$ & $\Delta^2 > x^2$ & $\left|\sin\gamma\right| < \frac{\Delta}{x}$ & remain solutions & reason of unavalible\\
+    \hline\hline
+    True & True & - & + & $\mathbb{R^-}$\\
+    True & False & True & $\pm$ & -\\
+    True & False & False & 0 & $\mathbb{C-R}$\\
+    False & True & - & + & $\mathbb{R^-}$\\
+    False & False & - & 0 & $\mathbb{R^-}$\\
+    \hline
+  \end{tabular}
+\end{center}
+Then we do another simplification, that is setting $\theta_x = 0, \pi$, i.e., align $\mathbf{x}$ on the axis of $\mathbf{r}$. The reason we do this simplification is that we wonder how should Bob measure the field on the axis where also should has the most significant non-isotropic phenonenon.
+\subsection{Result}
+Since we set $\theta_x = 0, \pi$ and the delta function makes the smearing function only distribute in $\theta = 0$, we can rewrite $\cos\gamma$ as $1, -1$, and $r_\pm$ as $x \pm \Delta, - x \pm \Delta$. We now able to derive the $F_{B1}$ explicitly.
+\begin{align}
+    F_{B1}(\mathbf{x}) &= - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+                       &= - \frac{1}{2} \sum \frac{r_{\pm}^2 R(r_{\pm})}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}} \frac{1}{\frac{r_{\pm} - x\cos\gamma}{\sqrt{r_{\pm}^2 + x^2 - 2r_{\pm}x\cos\gamma}}} \notag \\
+                       &= 
+                       \begin{cases}
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} - x} R(r_{\pm}) & \text{if } \theta_x = 0 \\
+                           - \frac{1}{2} \sum \frac{r_{\pm}^2}{r_{\pm} + x} R(r_{\pm}) & \text{if } \theta_x = \pi \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2} \frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2} \left(\frac{(x + \Delta)^2}{(x + \Delta) - x} R(x + \Delta) + \frac{(x - \Delta)^2}{(x - \Delta) - x} R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2} \frac{(\Delta - x)^2}{(\Delta - x) + x} R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+                       &=
+                       \begin{cases}
+                           - \frac{1}{2\Delta} (x + \Delta)^2 R(x + \Delta) & \text{if } \theta_x = 0 \wedge \Delta^2 > x^2 \\
+                           - \frac{1}{2\Delta} \left((x + \Delta)^2 R(x + \Delta) - (x - \Delta)^2 R(x - \Delta)\right) & \text{if } \theta_x = 0 \wedge \Delta^2 < x^2 \\
+                           - \frac{1}{2\Delta} (\Delta - x)^2 R((\Delta - x)) & \text{if } \theta_x = \pi \wedge \Delta^2 > x^2 \\
+                           0 & \text{if } \theta_x = \pi \wedge \Delta^2 < x^2 \\
+                       \end{cases} \notag \\
+\end{align}
+Note that when \( \theta_x = \pi \), the smearing function of Bob is located directly behind that of Alice along the same axis. Therefore, if we are only interested in the behavior of the smearing function along this axis, we can equivalently set \( x \rightarrow -x \) while taking \( \theta_x = \pi \). So the smearing function becames
+\be
+    F_{B1}(\mathbf{x}) =
+                       \begin{cases}
+                           - \frac{1}{2\Delta} \left((x + \Delta)^2 R(x + \Delta) - (x - \Delta)^2 R(x - \Delta)\right) & \text{if } \Delta < x \\
+                           - \frac{1}{2\Delta} (x + \Delta)^2 R(x + \Delta) & \text{if } -\Delta < x < \Delta \\
+                           0 & \text{if } x < -\Delta \\
+                       \end{cases} \notag \\
+\ee
+We can try to plug in the Gaussian function to $R(r)$ first. And get fallowing figure,
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{fig/Fa0.png}
+         \caption{t $\rightarrow$ 0}
+         \label{fig:t0}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{fig/Fa1.png}
+         \caption{t = 1.34}
+         \label{fig:t1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{fig/Fa2.png}
+         \caption{t = 5}
+         \label{fig:t2}
+    \end{subfigure}
+\end{figure}
+From the figures above, we can observe that the propagation of $F_{B1}$ does not exhibit any non-isotropic behavior. The distribution remains symmetric along the axis, indicating that the chosen smearing function, despite being non-isotropic, does not lead to anisotropic propagation in this setup.
+
+It is similar to calculate \(F_{B2}, F_{B3}\), we could explicitly write out what they are, 
+\begin{equation}
+    F_{B2}(\mathbf{x}) = - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta '\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+\end{equation}
+\begin{equation}
+    F_{B3}(\mathbf{x}) = - \int \mathrm{d}\theta\, \delta(\theta)  \int \mathrm{d}\phi\, \int \mathrm{d}r\, r^2 \, R(r) \frac{\delta ''\left(\sqrt{r^2 + x^2 - 2rx \cos\gamma} - \Delta\right)}{4\pi \sqrt{r^2 + x^2 - 2rx \cos\gamma}} \notag \\
+\end{equation}
+where \(\displaystyle \delta '(x) = \frac{d \delta(x)}{d x}\) and \(\displaystyle \delta '''(x) = \frac{d^2 \delta(x)}{d x^2}\). Note that is derivative is differential over x, in the original equation, it becomes differentialing over \(\sqrt{r^2 + x^2 - 2rx \cos{\gamma}}\). Thus we need to do a change of variable, Chain rule, to change the variable to \(r\). After these messy calculation, we obtain the following equations
+\begin{equation}
+    F_{B2}(\mathbf{x}) = \int \frac{1}{\Delta}\left(\delta '(r - r_+) + \delta '(r - r_-) \right)g(r) r^2 R(r) \mathrm{d} r 
+\end{equation}
+\begin{equation}
+    F_{B3}(\mathbf{x}) = \int \frac{1}{\Delta}\left(g(r) (\delta '(r - r_+) + \delta '(r - r_-)) \right) g(r) r^2 R(r) \mathrm{d} r 
+\end{equation}
+where \(g(r) = \frac{d r}{d \sqrt{r^2 + x^2 - 2rx \cos{\gamma}}}\).
+By using the following properties of Dirac delta function,
+\begin{align}
+    &\int \mathrm{d} x \, \delta '(x-a) f(x) = f'(a)\\
+    &\int \mathrm{d} x \, \delta ''(x-a) f(x) = f''(a)
+\end{align}
+we obtain 
+\begin{align*}
+    F_{B2}(\mathbf{x}) &= \frac{\Delta  (\Delta -x) e^{-\frac{(x-\Delta )^2}{\sigma ^2}} \left((x-\Delta )^2-\sigma ^2\right)}{\sqrt{\Delta ^2} \sigma ^2}\operatorname{sgn}(x - \Delta)\\ &+\frac{\Delta  (\Delta +x) e^{-\frac{(\Delta +x)^2}{\sigma ^2}} \left((\Delta +x)^2-\sigma ^2\right)}{\sqrt{\Delta ^2} \sigma ^2} \operatorname{sgn}(x + \Delta)
+\end{align*}
+
+{\footnotesize\begin{align*}
+    F_{B3}(\mathbf{x}) &= \frac{e^{-\frac{(x-\Delta )^2}{\sigma ^2}} \left(-5 \Delta ^2 \sigma ^2+2 \Delta ^4+\sigma ^4+x^2 \left(12 \Delta ^2-5 \sigma ^2\right)-8 \Delta  x^3+2 x^4+x \left(10 \Delta  \sigma ^2-8 \Delta ^3\right)\right)}{\sigma ^4}\operatorname{sgn}(x - \Delta)\\
+    &+\frac{e^{-\frac{(\Delta +x)^2}{\sigma ^2}} \left(-5 \Delta ^2 \sigma ^2+2 \Delta ^4+\sigma ^4+x^2 \left(12 \Delta ^2-5 \sigma ^2\right)+8 \Delta  x^3+2 x^4+2 x \left(4 \Delta ^3-5 \Delta  \sigma ^2\right)\right)}{\sigma ^4}\operatorname{sgn}(x + \Delta) 
+\end{align*}}
+The figure of both is plotted below, we can see that it is indeed surviving in the \(\theta = 0\) direction and \(\theta = \pi\) direction. Thus we can't make a isotropic quantum teleportation via this setup.
+
+% \begin{figure}[htbp]
+%     \centering
+%     \subfigure[FB2]{
+%         \includegraphics[width=0.45\textwidth]{FB2.pdf}
+%         \label{fig:sub1}
+%     }
+%     \hfill
+%     \subfigure[FB3]{
+%         \includegraphics[width=0.45\textwidth]{FB3.pdf}
+%         \label{fig:sub2}
+%     }
+%     \caption{Comparison of FB2 and FB3}
+%     \label{fig:combined}
+% \end{figure}
 
 \appendix
 
