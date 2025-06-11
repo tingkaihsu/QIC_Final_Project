@@ -1,13 +1,14 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,12pt]{article}
 \usepackage{jheppub} % for details on the use of the package, please see the JINST-author-manual
 \usepackage{lineno}
-\linenumbers
+\usepackage{indentfirst}
+% \linenumbers
 
 
 
-\arxivnumber{1234.56789} % if you have one
+% \arxivnumber{1234.56789} % if you have one
 
-\title{\boldmath A title with some math: $x=1$}
+\title{QIC Final Project: Anisotropic Transmission of quantum information through quantum fields}
 
 % Collaborations
 
@@ -38,114 +39,300 @@
 %% \affiliation[b]{Institution_2,\\Address, Country}
 %% \affiliation[c]{Institution_3,\\Address, Country}
 
-\author{}
-\affiliation{One University,\\
-some-street, Country}
-\affiliation{Another University,\\
-different-address, Country}
+\author{T. Hsu}
+\affiliation{National Taiwan University,\\
+Taipei, Taiwan}
+% \affiliation{Another University,\\
+% different-address, Country}
 
 % E-mail addresses: only for the corresponding author
-\emailAdd{first@one.univ}
+\emailAdd{b11901097@ntu.edu.tw}
 
-\abstract{Abstract...}
+\abstract{In this letter, we briefly review the possible way to transmit the quantum information via quantum fields \cite{PhysRevD.101.036014}, and then we discuss }
 
 
 
 \begin{document}
 \maketitle
 \flushbottom
+% \section{Path Integral in Euclidean Signature}
+\section{Quantum Channel: Via Quantum Mechanics}
+In quantum information theory, the information is represented by a qubit, and it can be transformed, projected, and transmitted based on basic quantum mechanics postulates.
+In this letter, we focus on the transmission of a qubit from a spacetime emitter Alice $ A $ to a receiver Bob $ B $.
 
-\section{Some examples}
-\label{sec:intro}
+There are various ways to transmit a qubit without contacting, which are based on the \textit{resources} Alice and Bob share.
+For instance, if an entangled state is shared, they can transmit the qubit by Alice performing the Bell measurement and then send the result (a classical cbit) to Bob, which is the well-known \textit{quantum teleportation}.
+Here, we simply consider transmission by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
+Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
+The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
 
-For internal references use label-refs: see section~\ref{sec:intro}.
-Bibliographic citations can be done with "cite": refs.~\cite{a,b,c}.
-When possible, align equations on the equal sign. The package
-\texttt{amsmath} is already loaded. See \eqref{eq:x}.
-\begin{equation}
-\label{eq:x}
-\begin{aligned}
-x &= 1 \,,
-\qquad
-y = 2 \,,
-\\
-z &= 3 \,.
-\end{aligned}
-\end{equation}
-Also, watch out for the punctuation at the end of the equations.
+The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $, and $ | a \ar = \alpha | 0 \ar + \beta | 1 \ar $:
+\be
+    U \rho_{ A, 0 } \otimes \rho_{ C, 0 } U^{\dagger} = \rho_{ C, 0 } \otimes \rho_{ A, 0 }
+\ee
+
+The SWAP operator is:
+\be
+    U = \begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & \alpha^* & \beta^* & 0\\
+        0 & \beta & -\alpha & 0\\
+        0 & 0 & 0 & 1\\
+    \end{pmatrix}
+\ee
+
+\textbf{Remark: }
+The transmission of qubit described above is rather trivial; however, it is based on an important fact that the dimension of the Hilbert space of $ C $ is the same as those of the Hilbert space of $ A $ and $ B $, so there is an isomorphism between the Hilbert spaces.
+As we will see in the next section, the Hilbert space (or more precisely, the Fock space) of quantum fields is infinite-dimensional, and therefore there is no isomorphism like SWAP gate in the quantum mechanic case.
+
+\section{Quantum Channel: Via Quantum Fields}
+In this section, we briefly review the idea of quantum transmission via quantum fields \cite{PhysRevD.101.036014}.
+As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the principles of special relativity.
+
+\subsection*{Brief Review on Quantum Field Theory}
+Many quantum field theory textbooks introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
+The equation of motion (e.o.m) of harmonic oscillators in the configuration space:
+\be
+    \ddot{ q }( t ) + \omega^2 q( t ) = 0
+\ee
+
+If there is no specific boundary condition, the general solution of position $ q( t ) $ and the conjugate momentum $ p(t) $is given by:
+\be
+\begin{split}
+    q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( a e^{ - i \omega t } + a^{ * } e^{ i \omega t } \rt)\\
+    p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( a e^{ - i \omega t } - a^{ * } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The pre-factor is a convenient choice to canonical quantization:
+\be
+    \lt[ \hat q (t), \hat p (t) \rt] = i \hbar,\,\, \lt[ \hat a, \hat a^{ \dagger } \rt] = 1
+\ee
+
+\be
+\begin{split}
+    \hat q( t ) = \sqrt{ \f{\hbar}{2\omega} } \lt( \hat a e^{ - i \omega t } + \hat a^{ \dagger } e^{ i \omega t } \rt)\\
+    \hat p( t ) = -i\sqrt{ \f{\hbar \omega}{2} } \lt( \hat a e^{ - i \omega t } - \hat a^{ \dagger } e^{ i \omega t } \rt)
+\end{split}
+\ee
+
+The e.o.m, canonical quantization, and the Fourier modes of real scalar field are similar to the quantum oscillator, and we denote the conjugate momentum as $ \pi(\mb{x}, t) $:
+
+\be
+\begin{gathered}
+    \ddot\phi + \nabla^2 \phi + m^2 \phi = 0\\
+    \hat \phi( \mb{x}, t ) = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \hat \pi( \mb{x}, t ) = \p_t \hat \phi = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( -iE_k \cdot \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
+    \lt[\hat \phi( \mb x, t ), \hat \pi( \mb y, t ) \rt] = i\delta^{3}( \mb x - \mb y ),\,\,\, \lt[ \hat a( \mb k ), \hat a^{ \dagger }( \mb k' )\rt] = \delta^{3}( \mb k - \mb k' ) 
+\end{gathered}
+\ee
+where $ E_k = |\mb k|^2 + m^2 $ is the energy.
+
+\subsection*{Fock Space and Physical States}
+Next, we focus on the quantum states built by the system, and see where is the difference between quantum mechanics and quantum field theory.
+Again, let's first start with the quantum oscillator, the Hamiltonian of this system can be obtain by:
+\be
+    \hat H ( \hat p, \hat q ) := \hat p \hat{ \dot{q} } - \hat L = \f{ 1 }{ 2 } \lt( \hat p^2 + \omega^2 \hat q^2 \rt)
+\ee
+
+After some algebra and using the commutation relation of $\hat a$ and $\hat a^{\dagger}$, there is a simple relation between the Hamiltonian and the operator $\hat a$ and $\hat a^{\dagger}$ :
+
+\be
+    \hat H = \f{ \hbar \omega }{ 2 } \lt( \hat a^{ \dagger } \hat a + \hat a \hat a^{ \dagger } \rt) \equiv - \f{\hbar \omega}{ 2 } + \hbar \omega \hat N 
+\ee
+
+Number operator $ \hat N \equiv \hat a \hat a^{\dagger} $ is defined, and we see that it can be simultaneously diagonalized with the Hamiltonian.
+So consider the eigenstates of number operator, and assume there is no degeneracy, and now the operators $\hat a$ and $\hat a^{\dagger}$ are interpreted as \textit{lowing} and \textit{raising} operator.
+\be
+\begin{gathered}
+    \hat N | n \ar = n | n \ar \\
+    \hat a | n \ar \propto | n-1 \ar\\
+    \hat a^{\dagger} | n \ar \propto | n + 1 \ar  
+\end{gathered}
+\ee
+
+Mathematically, there can be infinite number of eigenstates, but physically, we request the Hamiltonian is bounded below, and we define the state with lowest eigenvalue as \textit{vacuum state}.
+
+\be
+\begin{gathered}
+        \hat a | 0 \ar = 0\\
+        \hat N | 0 \ar = 0\\
+        \al 0 | \hat H | 0 \ar = - \f{ \hbar \omega }{ 2 }
+\end{gathered}
+\ee
+
+As for the real scalar field theory, the \textit{lowering} and \textit{raising} operators become particle \textit{annihilator} and \textit{creator}.
+The Hamiltonian of this system is
+
+\be
+\begin{gathered}
+        \hat H = \int{ d^3 \mb{x} } \f{ 1 }{ 2 } \lt( \hat \pi^2 + ( \nabla \hat \phi )^2 + m^2 \hat \phi^2 \rt) \\
+        = \int{} \f{ d^3 \mb{p} }{ (2\pi)^3 } E_{ p } \lt( \hat a^{\dagger} ( \mb p )\hat a ( \mb p ) + \f{ 1 }{ 2 }\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] \rt)
+\end{gathered}
+\ee
+
+We immediately see a problem of divergence from the second term.
+There are two divergences, one corresponds to the UV divergence of $\lt[\hat a( \mb p ), \hat a^{ \dagger } ( \mb p ) \rt] = \delta(0)$, the other corresponds to the infinite volume in the momentum space over this commutator.
+The UV divergence can be dealt with a UV cutoff, and in field theory, we focus on the Hamiltonian density instead of Hamiltonian to remove the infinite volume.
+Again, we can simultaneously diagonalize the Hamiltonian and the number operator, and the eigenstates are called \textit{particle states}:
+\be
+\begin{gathered}
+    \hat a( \mb p ) | \text{VAC} \ar = 0\\
+    \hat a^{\dagger} ( \mb p ) | \text{VAC} \ar = \sqrt{ 2E_p } | \mb p \ar\\
+    \al \mb q | \mb p \ar = \delta^{ 3 } ( \mb q - \mb p )
+\end{gathered}
+\ee
+
+The pre-factor is here to hold the Lorentz invariance of one particle state.
+
+The non-trivial part of quantum field theory is the physical states, we have vacuum state, one-particle states, multi-particle states, and they do not correspond to a single Hilbert space, but a direct sum of Hilbert spaces, called Fock space.
+If a creator is acted on one-particle state, we expect it to be a two-particle state:
+\be
+    \hat a^{ \dagger } ( \mb q ) | \mb p \ar = | \mb q \ar \otimes | \mb p \ar
+\ee
+
+It is well-known that in quantum mechanics, the one-particle state corresponds to a Hilbert space.
+In quantum field theory, the multiple particle states can be excited, and they are tensor products of one-particle state.
+For real scalar field theory, the Fock space can be written as the direct sum of Hilbert space:
+
+\be
+    F = \bigoplus^{ \infty }_{ n = 0 } H^{ \otimes n }
+\ee
+
+Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, which corresponds to the vacuum state.
+The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
+
+\subsection*{Unruh-DeWitt model}
+In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
+It is used to explain the Unruh-effect of horizon, and here it is used to construct the transmission system.
+Suppose the quantum detectors (it can be physically realized by atomic orbital of crystal) carried by Alice and Bob are localized at spacetime points, and they are coupled to the real scalar quantum field $\phi( \mb x, t )$.
+First, consider the realization of qubit in the quantum detector $ \nu = \{A, B\} $, a convenient choice is the Pauli z-operator \cite{PhysRevD.101.036014}.
+The qubits are realized by the eigenstates of the free Hamiltonian, which is $ \hat H_{ \nu } = \omega_\nu \hat \sigma_z $:
+\be
+    \hat H_{ \nu } | \pm_{ z, \nu } \ar = \pm \omega_{ \nu } | \pm_{ z, \nu } \ar
+\ee
+
+Then, the interaction between detectors and the field can be described by a local interaction:
+\be
+    \hat H_{ \nu }( t ) = \lambda \chi( t ) \hat m_\nu( t ) \otimes \hat{ \mc{ O } }_\nu ( t )
+\ee
+
+$ \lambda $ is a coupling constant, $\chi ( t )$ is an switching function that smoothly controls the time duration of interaction, and $\hat m_\nu( t )$ and $\hat{ \mc{ O } }_\nu ( t )$ are detector and field observables.
+
+The field observables should be local in spacetime, and it is realized by smearing function:
+\be
+    \hat{ \mc{ O } }_\nu ( t ) = \int{} d^{3} \mb{ x } F_{ \nu } ( \mb x ) \hat{ \mc{ O } } ( \mb x, t )
+\ee
+
+The smearing function must have support in the region of space at time $t$ where the observers are located.
+Note that we have to choose a picture to track the time-dependence of the quantum states and operators, see appendix for more information.
+The time-evolution operator of state by this interaction Hamiltonian is:
+\be
+    \hat U_{ \nu } = \mc{ T } \exp \lt[ -i \int_{-\infty}^{\infty} dt \hat H_{ \nu }( t ) \rt]
+\ee
+
+where $ \mc{ T } $ denotes the time-ordering. 
+
+When the coupling constant $\lambda << 1$ in the units of the characteristic length scale of this system, we can use the perturbation theory to approximate the evolution up to a desired order.
+However, as we shall see, this is not the case for transmission of quantum information, so we must deal with this evolution problem with non-perturbative technique.
+An simplification of interaction as an example, if the quantum detector only interacts with the quantum field at discrete instants in time, that is, the switching function of the quantum detector is $ \chi ( t ) = \sum_{ i = 1 }^{ n } \delta ( t - t_i )$ with $ t_i < t_{ i + 1 } $.
+Then the time evolution operator can be expressed as $ \hat U = \hat U_n \cdots \hat U_1 $:
+\be
+    \hat U_{ \nu, i } = \exp \lt[ -i \lambda \hat m_\nu ( t_i ) \otimes \hat{ \mc{ O } }_{ \nu } ( t_i )\rt]
+\ee
+
+This expression is exact analytical. 
+
+\subsection*{Strong Coupling Condition}
+The non-perturbative couplings between the detectors and the field is a necessary condition to construct a perfect quantum channel:
+
+\be
+    Q( \Xi  ) = 0 + \mc{ O } ( \lambda )
+\ee
+
+\subsection*{Qubit in a Field: Encoding}
+We call the gate encoding a qubit into a field an ENCODE gate, rather than a SWAP gate in the previous section, and similarly for the DECODE gate.
+Now, Alice's detector need to be coupled to the real scalar field at time $t_A$ and with the spatial extent given by the support of the smearing function $F_A( \mb x )$.
+Suppose, initially, the field is in the vacuum state $ | \text{VAC} \ar $, and Alice's qubit is $ c_1 | +_z \ar + c_2 | -_z \ar $.
+The qubit-field interaction is given by:
+
+\be
+\begin{gathered}
+    \hat H_A ( t ) = \lambda_{ \phi } \delta( t - t_A^- ) \hat \sigma_z \otimes \int{} d^3 \mb x F_A( \mb x ) \hat \phi ( \mb x, t ) \\
+    +\lambda_{ \pi } \delta( t - t_A^+ ) \hat \sigma_z \otimes \int{} d^3 \mb x F_A( \mb x ) \hat \pi ( \mb x, t )
+\end{gathered}
+\ee
+where the times $ t^{\pm}_A \approx t_A$ such that $t_A^-$ is slightly smaller than $t_A^+$.
+Therefore, the time evolution operator is:
+\be
+    \hat U_A = \exp \lt( i \hat \sigma_x \otimes \hat \pi_A \rt)\exp \lt( i \hat \sigma_z \otimes \hat \phi_A \rt)
+\ee
+
+where $\hat \phi_A$ and $\hat \pi_A$ are smeared field observables:
+
+\be
+\begin{gathered}
+    \hat \phi_A := \lambda_\phi \int{} d^3\mb{ x } F_{A}( \mb x ) \hat \phi ( \mb x, t_A )\\
+    \hat \pi_A := \lambda_\pi \int{} d^3\mb{ x } F_{A}( \mb x ) \hat \pi ( \mb x, t_A )
+\end{gathered}
+\ee
+
+Acting on the initial state $ ( c_1 | +_z \ar + c_2 | -_z \ar ) \otimes | \text{VAC} \ar $ with the rightmost exponential in $ \hat U_A $ results in the state:
+\be
+    c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar  
+\ee
+where coherent field state $ | \alpha^{ \pm }_A \ar $ are defined by:
+
+\be
+    | \alpha^{ \pm }_A \ar := \exp\lt( \pm i \hat \phi_A \rt) | \text{VAC} \ar
+\ee
+
+By mode expansion of real scalar field and the commutation relation of the creator and annihilator, the overlap between two coherent field states is:
+
+\be
+\begin{gathered}
+    | \al \alpha_A^+ | \alpha_A^- \ar | = | \al \text{VAC} | \exp \lt( - i \hat \phi_A^{ \dagger } \rt)  \exp \lt( -i \hat \phi_A \rt)  |\text{VAC} \ar |\\
+    = \exp \lt[ -\lambda^2_\phi \int{} \f{ d^3 \mb{k} }{ 2E_k } |\tilde{ F }_A( \mb{k} ) |^2 \rt] 
+\end{gathered}
+\ee
+where $\tilde{ F }_A( \mb k )$ is the Fourier transform of the smearing function.
+
+Hence under the strong coupling condition $\lambda_\phi >> 1$, the coherent field states $|\alpha^{\pm}_A\ar$ are almost orthogonal.
+
+Then the operator $\exp \lt( i \hat \sigma_x \otimes \hat \pi_A \rt)$ is applied.
+First, consider the field observable $\hat \pi_A$ on the coherent field state, using the Baker-Campbell-Hausdorff formula\cite{PhysRevD.101.036014}:
+\be
+    \hat \pi_A | \alpha^{\pm}_A \ar = \pm \gamma_A | \alpha^{\pm}_A \ar + \exp ( \pm i \hat \pi_A ) \hat \pi_A | \text{VAC} \ar \approx \pm \gamma_A | \alpha^{\pm}_A \ar
+\ee
+
+where $\gamma_{A} := \lambda_\phi \lambda_\pi \int{} d^3 \mb k | \tilde{F}_A ( \mb k ) |^2$, and the second equality holds if $\gamma_A^2 >> \al \text{VAC} | \hat \pi_A | \text{VAC} \ar$, and the coherent field states are approximately eigenstates of the observables $\pi_A$ with eigenvalues $\pm\gamma_A$.
+
+If
+\be
+    \gamma_A = \f{ \pi }{ 4 } \mod 2\pi,
+\ee
+then
+\be
+\begin{gathered}
+    \hat U_A \lt( c_1 | +_z \ar + c_2 | -_z \ar\rt) \otimes | \text{VAC} \ar\\
+    = \exp\lt( i \hat \sigma_x \hat \pi_A \rt) \lt( c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar \rt) \\
+    \approx c_1 \exp\lt( +i \f{ \pi }{ 4 } \hat \sigma_x \rt) | +_z \ar \otimes | \alpha^{ + }_A \ar + c_2 \exp\lt( -i \f{ \pi }{ 4 } \hat \sigma_x \rt) | -_z \ar \otimes | \alpha^{ - }_A \ar\\
+    = | +_y \ar \otimes ( c_1 | \alpha^{+}_A \ar - i c_2 |\alpha^{-}_A \ar )
+\end{gathered}
+\ee
+
+\subsection*{Qubit out of a Field: Decoding}
 
 
-If you want some equations without the tag (number), please use the available
-starred-environments. For example:
-\begin{equation*}
-x = 1
-\end{equation*}
+\section{Broadcasting Quantum Information}
 
-\section{Figures and tables}
+\subsection*{Isotropic Smearing Function}
 
-All figures and tables should be referenced in the text and should be
-placed on the page where they are first cited or in
-subsequent pages. Positioning them in the source file
-after the paragraph where you first reference them usually yield good
-results. See figure~\ref{fig:i} and table~\ref{tab:i} for layout examples. 
-Please note that a caption is mandatory  and it must be placed at the bottom of both figures and tables.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.4\textwidth]{example-image-a}
-\qquad
-\includegraphics[width=.4\textwidth]{example-image-b}
-\caption{Always give a caption.\label{fig:i}}
-\end{figure}
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{lr|c}
-\hline
-x&y&x and y\\
-\hline
-a & b & a and b\\
-1 & 2 & 1 and 2\\
-$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
-\hline
-\end{tabular}
-\caption{We prefer to have top and bottom borders around the tables.\label{tab:i}}
-\end{table}
-
-We discourage the use of inline figures (e.g. \texttt{wrapfigure}), as they may be
-difficult to position if the page layout changes.
-
-We suggest not to abbreviate: ``section'', ``appendix'', ``figure''
-and ``table'', but ``eq.'' and ``ref.'' are welcome. Also, please do
-not use \texttt{\textbackslash emph} or \texttt{\textbackslash it} for
-latin abbreviaitons: i.e., et al., e.g., vs., etc.
-
-
-\paragraph{Up to paragraphs.} We find that having more levels usually
-reduces the clarity of the article. Also, we strongly discourage the
-use of non-numbered sections (e.g.~\texttt{\textbackslash
-  subsubsection*}).  Please also consider the use of
-``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
-from the \texttt{hyperref} package when you have math in the section titles.
-
-
+\subsection*{Anisotropic Smearing Function}
 
 \appendix
-\section{Some title}
-Please always give a title also for appendices.
-
-
-
-
 
 \acknowledgments
-
-This is the most common positions for acknowledgments. A macro is
-available to maintain the same layout and spelling of the heading.
-
-\paragraph{Note added.} This is also a good position for notes added
-after the paper has been written.
-
 
 % Bibliography
 
@@ -156,28 +343,21 @@ after the paper has been written.
 %% or
 %% [B] Manual formatting (see below)
 %% (i) We suggest to always provide author, title and journal data or doi:
-%% in short all the informations that clearly identify a document.
+%% in short all the information that clearly identify a document.
 %% (ii) please avoid comments such as "For a review'', "For some examples",
 %% "and references therein" or move them in the text. In general, please leave only references in the bibliography and move all
 %% accessory text in footnotes.
 %% (iii) Also, please have only one work for each \bibitem.
+\bibliographystyle{plain}
+\bibliography{ref}
 
-\begin{thebibliography}{99}
-
-\bibitem{a}
-Author,
-\emph{Title},
-\emph{J. Abbrev.} {\bf vol} (year) pg.
-
-\bibitem{b}
-Author,
-\emph{Title},
-arxiv:1234.5678.
-
-\bibitem{c}
-Author,
-\emph{Title},
-Publisher (year).
-
-\end{thebibliography}
+% Example reference entry in ref.bib
+% @article{example_reference,
+%   author = {Author Name},
+%   title = {Example Title},
+%   journal = {Example Journal},
+%   year = {2023},
+%   volume = {1},
+%   pages = {1--10}
+% }
 \end{document}
