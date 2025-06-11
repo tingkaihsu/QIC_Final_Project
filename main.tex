@@ -3,6 +3,7 @@
 \usepackage{lineno}
 \usepackage{indentfirst}
 \usepackage{physics}
+\newtheorem{theorem}{Theorem}
 % \linenumbers
 
 
@@ -126,6 +127,7 @@ The e.o.m, canonical quantization, and the Fourier modes of real scalar field ar
     \hat \pi( \mb{x}, t ) = \p_t \hat \phi = \int{\frac{ d^3 \mb k }{ ( 2 \pi )^3 } \f{ 1 }{ \sqrt{ 2E_k } } \lt( -iE_k \cdot \hat a( \mb k ) e^{ - i ( E_k t - \mb k \cdot \mb x ) } + H.c. \rt) }\\
     \lt[\hat \phi( \mb x, t ), \hat \pi( \mb y, t ) \rt] = i\delta^{3}( \mb x - \mb y ),\,\,\, \lt[ \hat a( \mb k ), \hat a^{ \dagger }( \mb k' )\rt] = \delta^{3}( \mb k - \mb k' ) 
 \end{gathered}
+\label{eq:solution}
 \ee
 where $ E_k = |\mb k|^2 + m^2 $ is the energy.
 
@@ -245,11 +247,14 @@ Then the time evolution operator can be expressed as $ \hat U = \hat U_n \cdots 
 This expression is exact analytical. 
 
 \subsection*{Strong Coupling Condition}
-The non-perturbative couplings between the detectors and the field is a necessary condition to construct a perfect quantum channel:
+The non-perturbative couplings between the detectors and the field is a necessary condition to construct a perfect quantum channel $\Xi$:
 
 \be
     Q( \Xi  ) = 0 + \mc{ O } ( \lambda )
 \ee
+
+where $Q(\Xi)$ is the quantum channel capacity, for more details, we refer the readers to \cite{PhysRevD.101.036014}.
+In the following section, we would see why a strong coupling condition is necessary for a successful quantum transmission.
 
 \subsection*{Qubit in a Field: Encoding}
 We call the gate encoding a qubit into a field an ENCODE gate, rather than a SWAP gate in the previous section, and similarly for the DECODE gate.
@@ -280,7 +285,8 @@ where $\hat \phi_A$ and $\hat \pi_A$ are smeared field observables:
 
 Acting on the initial state $ ( c_1 | +_z \ar + c_2 | -_z \ar ) \otimes | \text{VAC} \ar $ with the rightmost exponential in $ \hat U_A $ results in the state:
 \be
-    c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar  
+    c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar 
+\label{eq:entanglement} 
 \ee
 where coherent field state $ | \alpha^{ \pm }_A \ar $ are defined by:
 
@@ -298,7 +304,7 @@ By mode expansion of real scalar field and the commutation relation of the creat
 \ee
 where $\tilde{ F }_A( \mb k )$ is the Fourier transform of the smearing function.
 
-Hence under the strong coupling condition $\lambda_\phi >> 1$, the coherent field states $|\alpha^{\pm}_A\ar$ are almost orthogonal.
+Hence under the strong coupling condition $\lambda_\phi \gg 1$, the coherent field states $|\alpha^{\pm}_A\ar$ are almost orthogonal.
 
 Then the operator $\exp \lt( i \hat \sigma_x \otimes \hat \pi_A \rt)$ is applied.
 First, consider the field observable $\hat \pi_A$ on the coherent field state, using the Baker-Campbell-Hausdorff formula\cite{PhysRevD.101.036014}:
@@ -306,7 +312,7 @@ First, consider the field observable $\hat \pi_A$ on the coherent field state, u
     \hat \pi_A | \alpha^{\pm}_A \ar = \pm \gamma_A | \alpha^{\pm}_A \ar + \exp ( \pm i \hat \pi_A ) \hat \pi_A | \text{VAC} \ar \approx \pm \gamma_A | \alpha^{\pm}_A \ar
 \ee
 
-where $\gamma_{A} := \lambda_\phi \lambda_\pi \int{} d^3 \mb k | \tilde{F}_A ( \mb k ) |^2$, and the second equality holds if $\gamma_A^2 >> \al \text{VAC} | \hat \pi_A | \text{VAC} \ar$, and the coherent field states are approximately eigenstates of the observables $\pi_A$ with eigenvalues $\pm\gamma_A$.
+where $\gamma_{A} := \lambda_\phi \lambda_\pi \int{} d^3 \mb k | \tilde{F}_A ( \mb k ) |^2$, and the second equality holds if $\gamma_A^2 \gg \al \text{VAC} | \hat \pi_A | \text{VAC} \ar$, and the coherent field states are approximately eigenstates of the observables $\pi_A$ with eigenvalues $\pm\gamma_A$.
 
 If
 \be
@@ -332,22 +338,63 @@ In other words, the qubit-field interaction $\hat U_\textsc{a}$ encodes Alice's 
 
 \subsection*{Qubit out of a Field: Decoding}
 
-Having understood how Alice can ENCODE her qubit of information into the field, the final step in constructing the field-mediated quantum channel from Alice to Bob is to construct the DECODE gate that allows Bob to recover Alice's message from the field. 
-The most straightforward way to proceed is to note that the DECODE gate should simply be the inverse of the ENCODE gate. 
-Thus, since we know the unitary $\hat U_A=\exp\big(i\hat\sigma_x\hat \pi_A\big)\exp\big(i\hat\sigma_z \hat \phi_A\big)$ implementing the encode gate, we also know that the inverse unitary $\hat U_A^{-1}=\hat U_A^\dagger=\exp\big(-i\hat\sigma_z \hat \phi_A\big)\exp\big(-i\hat\sigma_x \hat\pi_A\big)$ will implement the DECODE gate. We can now simply set the unitary $\hat U_B$, which acts on detector B and the field, to be the unitary $\hat U_A^\dagger$ with the understanding that the qubit observables $\hat\sigma_x$ and $\hat\sigma_z$ now act on the Hilbert space $\mathcal H_\textsc{b}$ rather than $\mathcal H_\textsc{a}$.
+Intuitively, the DECODE gate should be the inverse of the ENCODE gate. 
+Thus, because the Alice's qubit-field interaction is $\hat U_A=\exp\big(i\hat\sigma_x\hat \pi_A\big)\exp\big(i\hat\sigma_z \hat \phi_A\big)$, its inverse should be Bob's qubit-field interaction $\hat U_A^{-1}=\hat U_A^\dagger=\exp\big(-i\hat\sigma_z \hat \phi_A\big)\exp\big(-i\hat\sigma_x \hat\pi_A\big)$. 
+The qubit observables $\hat\sigma_x$ and $\hat\sigma_z$ now act on the Hilbert space $\mathcal H_\textsc{b}$ rather than $\mathcal H_\textsc{a}$.
 
-Note however that there is a problem with this construction of the decoding unitary $\hat U_B$. Namely, while we have modified the qubit observables in $\hat U_B$ from the ones in $\hat U_A^\dagger$ so that now they act on $\mathcal H_\textsc{b}$ rather than $\mathcal H_\textsc{a}$, the field observables $\phi_A$ and $\pi_A$ appearing in $\hat U_B$ are still defined at the time $t_\textsc{a}$ (c.f. Eqs.~\eqref{eq:phia} and \eqref{eq:pia}). But in order for Bob to implement $\hat U_B$ at a later time $t_\textsc{b}$, he needs to couple his qubit to field observables defined at the time $t_\textsc{b}$, not at $t_\textsc{a}$. 
+There is a problem with this construction of the decoding operator $\hat U_B$. 
+In order for Bob to implement $\hat U_B$ at a later time $t_\textsc{b} > t_\textsc{A}$, his qubit coupled to the field observables defined at the time $t_\textsc{b}$, not at $t_\textsc{a}$. 
+However, the field observables $\phi_A$ and $\pi_A$ appearing in $\hat U_B$ are still defined at the time $ t = t_\textsc{a}$, instead of $t_\textsc{b}$. 
 
-We will now solve this problem by proving a mathematical result which expresses the field observables $\phi_A$ and $\pi_A$ as observables at time $t_\textsc{b}$. Fundamentally, this result arises due to the fact that the field $\hat \phi(\mb x,t)$ is by definition a solution to the wave equation, which, being a hyperbolic PDE, has a well defined initial value formulation that allows solutions at time $t_\textsc{a}$ to be propagated to solutions at time $t_\textsc{b}$.
+This problem can be solved by a mathematical formula which represents the field observables $\phi_A$ and $\pi_A$ as the field observables at time $t_\textsc{b}$ with different smearing function. 
+% Fundamentally, this formula arises the field $\hat \phi(\mb x,t)$ is by definition a solution to the wave equation, which, being a hyperbolic PDE, has a well defined initial value formulation that allows solutions at time $t_\textsc{a}$ to be propagated to solutions at time $t_\textsc{b}$.
+As mentioned in the previous sections, the equation of motion of the real scalar field is a Cauchy problem, with a well-defined initial condition at $ t = t_\textsc{A} $, the field configuration at $ t = t_\textsc{b}$ can be obtained by time evolution operator without considering the qubit-field interaction.
+
+Here we simply put the mathematical formula and refer the readers to \cite{PhysRevD.101.036014}:
 
 
-
-
-With this mathematical result at hand, we can now write the unitary $\hat U_B$ --- which decodes Alice's qubit out of the field and onto Bob's detector --- in terms of field observables at the time $t_B$. 
-Namely, the theorem allows us to write the field observables $\hat \phi_A$ and $\hat \pi_A$ as
+Let $\hat \phi(\mb x,t)$ be a free real scalar field, and $\hat \pi(\mb x,t)$ be the conjugate momentum field, and let $F(\mb x)$ be arbitrary smearing function. 
+Then
 \be
 \begin{gathered}
-    \phi_A
+% \label{eq:phi_AQFT_identity}
+    \hat \phi[F](t_A)
+    =
+    \hat \phi[F_2](t_B)+\hat \pi[F_1](t_B), 
+    \\
+% \label{eq:pi_AQFT_identity}
+    \hat \pi[F](t_A)
+    =
+    \hat \phi[F_3](t_B)+\hat \pi[F_2](t_B),
+\end{gathered}
+\ee
+
+where the $F_i(\mb x)$ are related to $F(\mb x)$ via their Fourier transforms as
+\be
+\begin{gathered}
+% \label{eq:F1}
+    \tilde F_1(\mb k)
+    =
+    \tilde F(\mb k)\text{sinc}(\Delta E_k)(-\Delta),\\
+    % \label{eq:F2}
+    \tilde F_2(\mb k)
+    =
+    \tilde F(\mb k)\cos(\Delta E_k),\\
+    % \label{eq:F3}
+    \tilde F_3(\mb k)
+    =
+    \tilde F(\mb k)\sin(\Delta E_k)E_k,
+\end{gathered}
+\ee
+and where $\Delta:=t_B-t_A$.
+% \end{theorem}
+
+
+Armed with this formula, we can now write the Bob's qubit-field interaction $\hat U_B$, which decodes Alice's qubit out of the coherent field state, and onto Bob's quantum detector, in terms of the field observables at the time $t_B$. 
+The field observables $\hat \phi_A$ and $\hat \pi_A$ can be rewritten as
+\be
+\begin{gathered}
+    \hat \phi_A
     =
     \lambda_\phi
     \hat \phi[F_{\textsc{b}2}](t_B)
@@ -355,7 +402,7 @@ Namely, the theorem allows us to write the field observables $\hat \phi_A$ and $
     \lambda_\phi
     \hat \pi[F_{\textsc{b}1}](t_B),
     \notag\\
-    \pi_A
+    \hat \pi_A
     =
     \lambda_\pi
     \hat \phi[F_{\textsc{b}3}](t_B)
@@ -384,26 +431,24 @@ where Bob's smearing functions $F_{\textsc{b}i}(\mb x)$ are defined in terms of 
 \end{gathered}
 \ee
 
-Hence the unitary $\hat U_B$, defined by
-\begin{align}
-    \hat U_B
-    &=
-    \exp\big(-i\hat\sigma_z\phi_A\big)\exp\big(-i\hat\sigma_x\pi_A\big),
-\end{align}
-can now be alternatively defined in terms of field observables at time $t_B$, namely
+Hence the DECODE gate $\hat U_B$ is defined by
+\begin{equation}
+    \hat U_B = \exp\big(-i\hat\sigma_z \otimes \hat \phi_A\big)\exp\big(-i\hat\sigma_x \otimes \hat\pi_A\big),
+\end{equation}
+is equivalent to the field observables at time $t_B$
 \be
 \begin{gathered}
     \hat U_B
     =
     \exp
-    \left[-i\lambda_\phi\hat\sigma_z\left(
+    \left[-i\lambda_\phi\hat\sigma_z\otimes\left(
     \hat \phi[F_{\textsc{b}2}](t_B)
     +
     \hat \pi[F_{\textsc{b}1}](t_B)\right)
     \right]\notag\\
     \times
     \exp
-    \left[-i\lambda_\pi\hat\sigma_x\left(
+    \left[-i\lambda_\pi\hat\sigma_x\otimes\left(
     \hat \phi[F_{\textsc{b}3}](t_B)
     +
     \hat \pi[F_{\textsc{b}2}](t_B)\right)
@@ -412,15 +457,17 @@ can now be alternatively defined in terms of field observables at time $t_B$, na
 \end{gathered}
 \ee
 
-In summary, we have succeeded in constructing the quantum channel shown in Fig., which allows Alice to perfectly transmit a qubit through a quantum field to Bob. The quantum channel consists of two steps: 
+In summary, the constructed quantum channel allows Alice to transmit a qubit through a quantum field to Bob, consisting of two steps: 
 \begin{itemize}
-    \item First, at time $t=t_A$, Alice encodes her qubit state in a spatial region of the field characterized by $F_\textsc{a}(\mb x)$ by implementing the unitary $\hat U_A$ given in .
-    \item Then, at a later time $t=t_B$, Bob decodes the qubit from the field by coupling with the unitary $\hat U_B$ given in Eq. In order for Bob to be able to implement this unitary, his detector must be smeared in a spatial region that contains the supports of the functions $F_{\textsc{b}1}(\mb x)$, $F_{\textsc{b}2}(\mb x)$, and $F_{\textsc{b}3}(\mb x)$ defined by Eqs.
+    \item First, at time $t=t_A$, Alice encodes her qubit state in a spatial region of the field characterized by the smearing function $F_\textsc{a}(\mb x)$, and the encoding gate is realized by a particular qubit-field interaction $\hat U_A$.
+    \item Then, at a later time $t=t_B$, Bob decodes the qubit from the coherent field states. The Bob's qubit-field interaction, $\hat U_B$, is the inverse of the Alice's qubit-field interaction. However, due to the causality $t_B>t_A$, his detector must be smeared in a spatial region containing the supports of the smearing functions $F_{\textsc{b}1}(\mb x)$, $F_{\textsc{b}2}(\mb x)$, and $F_{\textsc{b}3}(\mb x)$.
 \end{itemize}
-Additionally, in order for the channel to succeed, the conditions  on the coupling strengths $\lambda_\phi$ and $\lambda_\pi$ must be satisfied. Physically, Eq.~\eqref{eq:strong_coupling_condition} is a strong-coupling condition which ensures that Alice's qubit first gets maximally entangled with orthogonal coherent field states, while Eq.~\eqref{eq:gamma_condition} is a fine-tuning condition which ensures that Alice's qubit is then rotated by the right amount in the Bloch sphere so that it gets completely unentangled from the field. Together, these conditions ensure that the encoding gate (and hence the decoding gate, which is just the inverse encoding gate) are implemented successfully. In particular we note that, as was discussed above, a strong (i.e. non-perturbative) coupling of detectors to the field is necessary in order for the field-mediated quantum channel from Alice to Bob to have maximal quantum channel capacity.
 
+Physically, the strong-coupling condition ensures that Alice's qubit first gets entangled with the nearly orthogonal coherent field states Eq.(\ref{eq:entanglement}).
+On the other hand, the condition on $\gamma_A$ is a fine-tuning condition, which ensures that Alice's qubit is rotated by the right amount in the Bloch sphere so that it gets completely unentangled from the coherent field states. 
+% Together, these conditions ensure that the gates are implemented successfully. In particular we note that, as was discussed above, a strong (i.e. non-perturbative) coupling of detectors to the field is necessary in order for the field-mediated quantum channel from Alice to Bob to have maximal quantum channel capacity.
 
-Despite our successes so far, there still remain two pertinent issues that must be addressed before one can be fully satisfied with our construction of a perfect, field-mediated quantum channel from Alice to Bob. First, it should be verified, without the use of any approximations (such as the one in Eq.~\eqref{eq:eigenvalue_equation_2}), that our supposedly perfect quantum channel $\Xi$ indeed has a maximal quantum channel capacity of $\mathcal Q(\Xi)=1$. And second, the smearing functions $F_{\textsc{b}i}(\mb x)$ are defined in terms of their Fourier transforms, and hence it is presently not clear where in space Bob needs to be located in order to receive Alice's quantum message, which is crucial for our study. We will successively address these two remaining issues in Sec.~\ref{sec:testing_quantum_channel} and Sec.~\ref{sec:where_does_q_info_propagate}.
+% Despite our successes so far, there still remain two pertinent issues that must be addressed before one can be fully satisfied with our construction of a perfect, field-mediated quantum channel from Alice to Bob. First, it should be verified, without the use of any approximations (such as the one in Eq.~\eqref{eq:eigenvalue_equation_2}), that our supposedly perfect quantum channel $\Xi$ indeed has a maximal quantum channel capacity of $\mathcal Q(\Xi)=1$. And second, the smearing functions $F_{\textsc{b}i}(\mb x)$ are defined in terms of their Fourier transforms, and hence it is presently not clear where in space Bob needs to be located in order to receive Alice's quantum message, which is crucial for our study. We will successively address these two remaining issues in Sec.~\ref{sec:testing_quantum_channel} and Sec.~\ref{sec:where_does_q_info_propagate}.
 
 
 \section{Broadcasting Quantum Information}
