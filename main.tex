@@ -233,7 +233,7 @@ The time-evolution operator of state by this interaction Hamiltonian is:
 
 where $ \mc{ T } $ denotes the time-ordering. 
 
-When the coupling constant $\lambda << 1$, we can use the perturbation theory to approximate the evolution up to a desired order.
+When the coupling constant $\lambda << 1$ in the units of the characteristic length scale of this system, we can use the perturbation theory to approximate the evolution up to a desired order.
 However, as we shall see, this is not the case for transmission of quantum information, so we must deal with this evolution problem with non-perturbative technique.
 An simplification of interaction as an example, if the quantum detector only interacts with the quantum field at discrete instants in time, that is, the switching function of the quantum detector is $ \chi ( t ) = \sum_{ i = 1 }^{ n } \delta ( t - t_i )$ with $ t_i < t_{ i + 1 } $.
 Then the time evolution operator can be expressed as $ \hat U = \hat U_n \cdots \hat U_1 $:
@@ -281,10 +281,44 @@ Acting on the initial state $ ( c_1 | +_z \ar + c_2 | -_z \ar ) \otimes | \text{
 \be
     c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar  
 \ee
-where $ | \alpha^{ \pm }_A \ar $ are defined by:
+where coherent field state $ | \alpha^{ \pm }_A \ar $ are defined by:
 
 \be
     | \alpha^{ \pm }_A \ar := \exp\lt( \pm i \hat \phi_A \rt) | \text{VAC} \ar
+\ee
+
+By mode expansion of real scalar field and the commutation relation of the creator and annihilator, the overlap between two coherent field states is:
+
+\be
+\begin{gathered}
+    | \al \alpha_A^+ | \alpha_A^- \ar | = | \al \text{VAC} | \exp \lt( - i \hat \phi_A^{ \dagger } \rt)  \exp \lt( -i \hat \phi_A \rt)  |\text{VAC} \ar |\\
+    = \exp \lt[ -\lambda^2_\phi \int{} \f{ d^3 \mb{k} }{ 2E_k } |\tilde{ F }_A( \mb{k} ) |^2 \rt] 
+\end{gathered}
+\ee
+where $\tilde{ F }_A( \mb k )$ is the Fourier transform of the smearing function.
+
+Hence under the strong coupling condition $\lambda_\phi >> 1$, the coherent field states $|\alpha^{\pm}_A\ar$ are almost orthogonal.
+
+Then the operator $\exp \lt( i \hat \sigma_x \otimes \hat \pi_A \rt)$ is applied.
+First, consider the field observable $\hat \pi_A$ on the coherent field state, using the Baker-Campbell-Hausdorff formula\cite{PhysRevD.101.036014}:
+\be
+    \hat \pi_A | \alpha^{\pm}_A \ar = \pm \gamma_A | \alpha^{\pm}_A \ar + \exp ( \pm i \hat \pi_A ) \hat \pi_A | \text{VAC} \ar \approx \pm \gamma_A | \alpha^{\pm}_A \ar
+\ee
+
+where $\gamma_{A} := \lambda_\phi \lambda_\pi \int{} d^3 \mb k | \tilde{F}_A ( \mb k ) |^2$, and the second equality holds if $\gamma_A^2 >> \al \text{VAC} | \hat \pi_A | \text{VAC} \ar$, and the coherent field states are approximately eigenstates of the observables $\pi_A$ with eigenvalues $\pm\gamma_A$.
+
+If
+\be
+    \gamma_A = \f{ \pi }{ 4 } \mod 2\pi,
+\ee
+then
+\be
+\begin{gathered}
+    \hat U_A \lt( c_1 | +_z \ar + c_2 | -_z \ar\rt) \otimes | \text{VAC} \ar\\
+    = \exp\lt( i \hat \sigma_x \hat \pi_A \rt) \lt( c_1 | +_z \ar \otimes | \alpha_A^+ \ar + c_2 | -_z \ar \otimes | \alpha_A^- \ar \rt) \\
+    \approx c_1 \exp\lt( +i \f{ \pi }{ 4 } \hat \sigma_x \rt) | +_z \ar \otimes | \alpha^{ + }_A \ar + c_2 \exp\lt( -i \f{ \pi }{ 4 } \hat \sigma_x \rt) | -_z \ar \otimes | \alpha^{ - }_A \ar\\
+    = | +_y \ar \otimes ( c_1 | \alpha^{+}_A \ar - i c_2 |\alpha^{-}_A \ar )
+\end{gathered}
 \ee
 
 \subsection*{Qubit out of a Field: Decoding}
