@@ -3,6 +3,7 @@
 \usepackage{lineno}
 \usepackage{indentfirst}
 \usepackage{physics}
+\usepackage{float}
 \newtheorem{theorem}{Theorem}
 % \linenumbers
 
@@ -41,14 +42,14 @@
 %% \affiliation[b]{Institution_2,\\Address, Country}
 %% \affiliation[c]{Institution_3,\\Address, Country}
 
-\author{T. Hsu}
+\author{Ting-kai Hsu}
 \affiliation{National Taiwan University,\\
 Taipei, Taiwan}
 % \affiliation{Another University,\\
 % different-address, Country}
 
 % E-mail addresses: only for the corresponding author
-\emailAdd{b11901097@ntu.edu.tw}
+% \emailAdd{b11901097@ntu.edu.tw}
 
 \abstract{In this letter, we briefly review the possible way to transmit the quantum information via quantum fields \cite{PhysRevD.101.036014}, and then we discuss }
 
@@ -67,6 +68,13 @@ For instance, if an entangled state is shared, they can transmit the qubit by Al
 Here, we simply consider transmission by a third quantum bit $ C $, $ \hat \rho_{ C, 0 } $.
 Denote Alice's qubit as $ \hat \rho_{ A, 0 } $ and Bob's qubit $ \hat \rho_{ B, 0 }$; the transmission is done by performing SWAP between $ A $ and $ C $, and then between $ C $ and $ B $. 
 The whole process is unitary and does not violate the non-cloning process because Alice's qubit becomes $ \hat \rho_{ C, 0 } $.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{swap.png}
+    \caption{Quantum channel using SWAP gate\cite{PhysRevD.101.036014}}
+    \label{fig:swap}
+\end{figure}
 
 The SWAP operator can be derived by assuming $ \hat \rho_{ C, 0 } = | 0 \ar \al 0 |$ and $ \hat \rho_{ A, 0 } = | a \ar \al a | $ with $ \al a | 0 \ar \ne 0 $, and $ | a \ar = \alpha | 0 \ar + \beta | 1 \ar $:
 \be
@@ -92,7 +100,7 @@ In this section, we briefly review the idea of quantum transmission via quantum 
 As we will see, quantum field theory generally provides a physical picture of transmission and is consistent with the principles of special relativity.
 
 \subsection*{Brief Review on Quantum Field Theory}
-Many quantum field theory textbooks introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
+Many quantum field theory textbooks\cite{Peskin:1995ev} introduce the quantum field by analog of harmonic oscillators, and here we follow the same logic.
 The equation of motion (e.o.m) of harmonic oscillators in the configuration space:
 \be
     \ddot{ q }( t ) + \omega^2 q( t ) = 0
@@ -206,7 +214,7 @@ Where $ H^{ \otimes 0 } $ is defined as the complex space $ \mathbb{ C } $, whic
 The transmission of quantum information via quantum fields is more complicated than that via quantum mechanics because of the mismatch of dimensionality between the dimension of quantum fields and the state owned by Alice and Bob.
 
 \subsection*{Unruh-DeWitt model}
-In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model.
+In this section, we introduce the interaction of a quantum mechanics system and quantum fields, which is called Unruh-De Witt model\cite{PhysRevD.101.036014}\cite{article}.
 It is used to explain the Unruh-effect of horizon, and here it is used to construct the transmission system.
 Suppose the quantum detectors (it can be physically realized by atomic orbital of crystal) carried by Alice and Bob are localized at spacetime points, and they are coupled to the real scalar quantum field $\phi( \mb x, t )$.
 First, consider the realization of qubit in the quantum detector $ \nu = \{A, B\} $, a convenient choice is the Pauli z-operator \cite{PhysRevD.101.036014}.
@@ -236,7 +244,7 @@ The time-evolution operator of state by this interaction Hamiltonian is:
 
 where $ \mc{ T } $ denotes the time-ordering. 
 
-When the coupling constant $\lambda << 1$ in the units of the characteristic length scale of this system, we can use the perturbation theory to approximate the evolution up to a desired order.
+When the coupling constant $\lambda \ll 1$ in the units of the characteristic length scale of this system, we can use the perturbation theory to approximate the evolution up to a desired order.
 However, as we shall see, this is not the case for transmission of quantum information, so we must deal with this evolution problem with non-perturbative technique.
 An simplification of interaction as an example, if the quantum detector only interacts with the quantum field at discrete instants in time, that is, the switching function of the quantum detector is $ \chi ( t ) = \sum_{ i = 1 }^{ n } \delta ( t - t_i )$ with $ t_i < t_{ i + 1 } $.
 Then the time evolution operator can be expressed as $ \hat U = \hat U_n \cdots \hat U_1 $:
@@ -257,6 +265,14 @@ where $Q(\Xi)$ is the quantum channel capacity, for more details, we refer the r
 In the following section, we would see why a strong coupling condition is necessary for a successful quantum transmission.
 
 \subsection*{Qubit in a Field: Encoding}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{encode decode.png}
+    \caption{Quantum channel via quantum fields\cite{PhysRevD.101.036014}. $|0\ar$ is the field vacuum state.}
+    \label{fig:encode_decode}
+\end{figure}
+
 We call the gate encoding a qubit into a field an ENCODE gate, rather than a SWAP gate in the previous section, and similarly for the DECODE gate.
 Now, Alice's detector need to be coupled to the real scalar field at time $t_A$ and with the spatial extent given by the support of the smearing function $F_A( \mb x )$.
 Suppose, initially, the field is in the vacuum state $ | \text{VAC} \ar $, and Alice's qubit is $ c_1 | +_z \ar + c_2 | -_z \ar $.
@@ -294,7 +310,7 @@ where coherent field state $ | \alpha^{ \pm }_A \ar $ are defined by:
     | \alpha^{ \pm }_A \ar := \exp\lt( \pm i \hat \phi_A \rt) | \text{VAC} \ar
 \ee
 
-By mode expansion of real scalar field and the commutation relation of the creator and annihilator, the overlap between two coherent field states is:
+By mode expansion of real scalar field and the commutation relation of the creator and annihilator, the overlap between two coherent field states is\cite{PhysRevD.101.036014}\cite{PhysRevD.96.025020}:
 
 \be
 \begin{gathered}
@@ -457,6 +473,12 @@ is equivalent to the field observables at time $t_B$
 \end{gathered}
 \ee
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{uaub.png}
+    \caption{Quantum channel: qubit-field interaction\cite{PhysRevD.101.036014}. $|0\ar$ is the field vacuum state.}
+    \label{fig:uaub}
+\end{figure}
 In summary, the constructed quantum channel allows Alice to transmit a qubit through a quantum field to Bob, consisting of two steps: 
 \begin{itemize}
     \item First, at time $t=t_A$, Alice encodes her qubit state in a spatial region of the field characterized by the smearing function $F_\textsc{a}(\mb x)$, and the encoding gate is realized by a particular qubit-field interaction $\hat U_A$.
@@ -464,7 +486,7 @@ In summary, the constructed quantum channel allows Alice to transmit a qubit thr
 \end{itemize}
 
 Physically, the strong-coupling condition ensures that Alice's qubit first gets entangled with the nearly orthogonal coherent field states Eq.(\ref{eq:entanglement}).
-On the other hand, the condition on $\gamma_A$ is a fine-tuning condition, which ensures that Alice's qubit is rotated by the right amount in the Bloch sphere so that it gets completely unentangled from the coherent field states. 
+On the other hand, the condition on $\gamma_A$ is a fine-tuning condition, which ensures that Alice's qubit is rotated by the right amount in the Bloch sphere so that it gets completely unentangled from the coherent field states\cite{PhysRevD.96.065008}\cite{PhysRevD.101.036014}. 
 % Together, these conditions ensure that the gates are implemented successfully. In particular we note that, as was discussed above, a strong (i.e. non-perturbative) coupling of detectors to the field is necessary in order for the field-mediated quantum channel from Alice to Bob to have maximal quantum channel capacity.
 
 % Despite our successes so far, there still remain two pertinent issues that must be addressed before one can be fully satisfied with our construction of a perfect, field-mediated quantum channel from Alice to Bob. First, it should be verified, without the use of any approximations (such as the one in Eq.~\eqref{eq:eigenvalue_equation_2}), that our supposedly perfect quantum channel $\Xi$ indeed has a maximal quantum channel capacity of $\mathcal Q(\Xi)=1$. And second, the smearing functions $F_{\textsc{b}i}(\mb x)$ are defined in terms of their Fourier transforms, and hence it is presently not clear where in space Bob needs to be located in order to receive Alice's quantum message, which is crucial for our study. We will successively address these two remaining issues in Sec.~\ref{sec:testing_quantum_channel} and Sec.~\ref{sec:where_does_q_info_propagate}.
