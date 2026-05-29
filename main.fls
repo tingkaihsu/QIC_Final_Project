@@ -1,6 +1,6 @@
-PWD c:\Users\User\Desktop\notes\selfstudy\notes 2025 spring
+PWD c:\Users\User\Documents\GitHub\QIC_Final_Project
 INPUT C:\Users\User\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\User\Desktop\notes\selfstudy\notes 2025 spring\main.tex
+INPUT c:\Users\User\Documents\GitHub\QIC_Final_Project\main.tex
 OUTPUT main.log
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
@@ -533,6 +533,39 @@ INPUT C:\Program Files\MiKTeX\tex\latex\tools\indentfirst.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\indentfirst.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\indentfirst.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\tools\indentfirst.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\physics\physics.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
@@ -544,6 +577,18 @@ INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Program Files\MiKTeX\tex\latex\amsmath\amsmath.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Program Files\MiKTeX\tex\latex\float\float.sty
 INPUT .\main.aux
 INPUT main.aux
 INPUT main.aux
@@ -607,7 +652,14 @@ INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmtt12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
+INPUT C:\Users\User\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT .\main.toc
+INPUT main.toc
+INPUT main.toc
+OUTPUT main.toc
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
@@ -633,14 +685,38 @@ INPUT C:\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT .\swap.png
+INPUT .\swap.png
+INPUT swap.png
+INPUT .\swap.png
+INPUT .\swap.png
+INPUT .\swap.png
+INPUT .\swap.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
+INPUT .\encode decode.png
+INPUT .\encode decode.png
+INPUT encode decode.png
+INPUT .\encode decode.png
+INPUT .\encode decode.png
+INPUT .\encode decode.png
+INPUT .\encode decode.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
-INPUT C:\Users\User\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
-INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT .\main.toc
-INPUT main.toc
-INPUT main.toc
-OUTPUT main.toc
+INPUT C:\Program Files\MiKTeX\fonts\tfm\public\cm\cmcsc10.tfm
+INPUT .\uaub.png
+INPUT .\uaub.png
+INPUT uaub.png
+INPUT .\uaub.png
+INPUT .\uaub.png
+INPUT .\uaub.png
+INPUT .\uaub.png
+INPUT C:\Program Files\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
 INPUT .\main.bbl
 INPUT main.bbl
 INPUT .\main.bbl
@@ -648,17 +724,39 @@ INPUT main.bbl
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
+INPUT C:\Users\User\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Users\User\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1200.pk
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmcsc10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
-INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt12.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb
+INPUT C:\Program Files\MiKTeX\fonts\type1\public\amsfonts\symbols\msbm10.pfb

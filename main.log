@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.4)  19 MAY 2025 21:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.4) (preloaded format=pdflatex 2023.9.4)  12 JUN 2025 09:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/User/Desktop/notes/selfstudy/notes 2025 spring/main.tex"
-(c:/Users/User/Desktop/notes/selfstudy/notes 2025 spring/main.tex
+**c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex
+(c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-03-30> (C:\Program Files\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -271,44 +271,59 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 LaTeX Info: Redefining \\ on input line 3180.
 ) (C:\Program Files\MiKTeX\tex/latex/tools\indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
-) (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+) (C:\Program Files\MiKTeX\tex/latex/physics\physics.sty
+Package: physics 
+ (C:\Program Files\MiKTeX\tex/latex/l3packages/xparse\xparse.sty (C:\Program Files\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2023-03-30 L3 programming layer (loader) 
+ (C:\Program Files\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-03-30 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count293
 \l__pdf_internal_box=\box54
-) (main.aux)
+))
+Package: xparse 2023-02-02 L3 Experimental document command parser
+)) (C:\Program Files\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count294
+\float@exts=\toks26
+\float@box=\box55
+\@float@everytoks=\toks27
+\@floatcapt=\box56
+)
+\c@theorem=\count295
+ (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
  (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count294
+\scratchcounter=\count296
 \scratchdimen=\dimen163
-\scratchbox=\box55
-\nofMPsegments=\count295
-\nofMParguments=\count296
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count297
+\scratchbox=\box57
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count299
 \MPscratchDim=\dimen164
-\MPnumerator=\count298
-\makeMPintoPDFobject=\count299
-\everyMPtoPDFconversion=\toks27
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks29
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -321,44 +336,103 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Program Files\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 55.
+Package hyperref Info: Link coloring ON on input line 58.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [0
+
+
+Package JHEP Warning: E-mails are missing.
+(JHEP)                Plese use \emailAdd macro to provide e-mails..
+
+[0
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (main.toc)
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (main.bbl
+LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+ (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+ (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<swap.png, id=29, 1277.52281pt x 347.04657pt>
+File: swap.png Graphic file (type png)
+<use swap.png>
+Package pdftex.def Info: swap.png  used on input line 74.
+(pdftex.def)             Requested size: 322.65479pt x 87.65106pt.
+ [1
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.92 \ee
+         <./swap.png>] [2] [3] [4] [5]
+<encode decode.png, id=100, 1268.48906pt x 344.78813pt>
+File: encode decode.png Graphic file (type png)
+<use encode decode.png>
+Package pdftex.def Info: encode decode.png  used on input line 271.
+(pdftex.def)             Requested size: 322.65479pt x 87.70146pt.
+ [6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.311 \ee
+          <./encode decode.png>]
+Overfull \hbox (31.58348pt too wide) in paragraph at lines 331--332
+[]\OT1/cmr/m/n/12 where $\OML/cmm/m/it/12 ^^M[] \OT1/cmr/m/n/12 := \OML/cmm/m/it/12 ^^U[]^^U[] [] []d[]\OT1/cmr/bx/n/12 k\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 k\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 j[]$\OT1/cmr/m/n/12 , and the sec-ond equal-ity holds if $\OML/cmm/m/it/12 ^^M[] \OMS/cmsy/m/n/12 ^^] h[]j[]j[]i$\OT1/cmr/m/n/12 ,
+ []
 
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
-
-) [1] (main.aux)
+[7] [8]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.31}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.433 \be
+         
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.31}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.433 \be
+         
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.31}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.433 \be
+         
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.31}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.433 \be
+         
+<uaub.png, id=137, 1278.27562pt x 348.55219pt>
+File: uaub.png Graphic file (type png)
+<use uaub.png>
+Package pdftex.def Info: uaub.png  used on input line 478.
+(pdftex.def)             Requested size: 322.65479pt x 87.97813pt.
+ (main.bbl [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.9 
+     <./uaub.png>]) [10] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E5DA9A3BA007E993854C05169A3E2307;427.
+(rerunfilecheck)             Checksum: FE17DB5F106098387B1672D0D03B380E;684.
  ) 
 Here is how much of TeX's memory you used:
- 10631 strings out of 476331
- 163161 string characters out of 5797584
- 1852660 words of memory out of 5000000
- 30909 multiletter control sequences out of 15000+600000
- 521445 words of font info for 64 fonts, out of 8000000 for 9000
+ 11488 strings out of 476331
+ 173681 string characters out of 5797584
+ 1867660 words of memory out of 5000000
+ 31684 multiletter control sequences out of 15000+600000
+ 524392 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,5n,90p,360b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (2 pages, 84175 bytes).
+ 90i,17n,90p,929b,599s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (11 pages, 371463 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 251 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 40 words of extra memory for PDF output out of 10000 (max. 10000000)
 

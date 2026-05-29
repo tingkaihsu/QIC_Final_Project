@@ -1,3 +1,32 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{article}
+Steven Hawking and Werner Israel.
+\newblock General relativity: An einstein centenary survey.
+\newblock {\em General Relativity: an Einstein Centenary Survey, by Stephen
+  Hawking , W. Israel, Cambridge, UK: Cambridge University Press, 2010}, page
+  680, 03 2010.
+
+\bibitem{Peskin:1995ev}
+Michael~E. Peskin and Daniel~V. Schroeder.
+\newblock {\em {An Introduction to quantum field theory}}.
+\newblock Addison-Wesley, Reading, USA, 1995.
+
+\bibitem{PhysRevD.101.036014}
+Petar Simidzija, Aida Ahmadzadegan, Achim Kempf, and Eduardo
+  Mart\'{\i}n-Mart\'{\i}nez.
+\newblock Transmission of quantum information through quantum fields.
+\newblock {\em Phys. Rev. D}, 101:036014, Feb 2020.
+
+\bibitem{PhysRevD.96.025020}
+Petar Simidzija and Eduardo Mart\'{\i}n-Mart\'{\i}nez.
+\newblock All coherent field states entangle equally.
+\newblock {\em Phys. Rev. D}, 96:025020, Jul 2017.
+
+\bibitem{PhysRevD.96.065008}
+Petar Simidzija and Eduardo Mart\'{\i}n-Mart\'{\i}nez.
+\newblock Nonperturbative analysis of entanglement harvesting from coherent
+  field states.
+\newblock {\em Phys. Rev. D}, 96:065008, Sep 2017.
 
 \end{thebibliography}
