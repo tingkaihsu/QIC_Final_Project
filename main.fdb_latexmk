@@ -1,13 +1,24 @@
 # Fdb version 4
+<<<<<<< Updated upstream
 ["bibtex main"] 1749692745 "main.aux" "main.bbl" "main" 1749692746 0
   "./ref.bib" 1749692722 2102 7232aa8b5a35dcfc719d13c7c664a405 ""
   "C:/Program Files/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 1749692746 3040 788c74e15ac6351fbdf3ef97fda21a9e "pdflatex"
+=======
+["bibtex main"] 1749690439 "main.aux" "main.bbl" "main" 1749690482 0
+  "./ref.bib" 1749690297 2102 7232aa8b5a35dcfc719d13c7c664a405 ""
+  "C:/Program Files/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
+  "main.aux" 1749690482 3040 788c74e15ac6351fbdf3ef97fda21a9e "pdflatex"
+>>>>>>> Stashed changes
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
+<<<<<<< Updated upstream
 ["pdflatex"] 1749692745 "c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex" "main.pdf" "main" 1749692746 0
+=======
+["pdflatex"] 1749690481 "c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex" "main.pdf" "main" 1749690482 0
+>>>>>>> Stashed changes
   "C:/Program Files/MiKTeX/fonts/tfm/adobe/helvetic/phvbc7t.tfm" 1136743454 2672 88159036c64e674fcd9515bc9c7052d4 ""
   "C:/Program Files/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Program Files/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -121,6 +132,7 @@
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1693810728 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1748596281 14064 77d28f594bd121b2494408fe1f7b15ed ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1693810789 23169141 993e65cef8809479343a59b58963b8f9 ""
+<<<<<<< Updated upstream
   "c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex" 1749692722 28524 a9eaeb4322801cecda696a1ba9b47b64 ""
   "encode decode.png" 1749692722 41635 71ec41756c77ea70b6dd95b5ce54ea35 ""
   "jheppub.sty" 1749688806 12809 1c5ce401ad6786413402f657620145d0 ""
@@ -131,6 +143,18 @@
   "main.toc" 1749692746 274 1bed14205cd80fdfca5b4a1d315b2d20 "pdflatex"
   "swap.png" 1749692722 43527 6498602ba7e3fa959e6ed86c623356ef ""
   "uaub.png" 1749692722 33944 75a66b002485007697584b3350a7a9d0 ""
+=======
+  "c:/Users/User/Documents/GitHub/QIC_Final_Project/main.tex" 1749690480 28524 a9eaeb4322801cecda696a1ba9b47b64 ""
+  "encode decode.png" 1749688997 41635 71ec41756c77ea70b6dd95b5ce54ea35 ""
+  "jheppub.sty" 1749688806 12809 1c5ce401ad6786413402f657620145d0 ""
+  "main.aux" 1749690482 3040 788c74e15ac6351fbdf3ef97fda21a9e "pdflatex"
+  "main.bbl" 1749690439 1199 57ce6847226cb0b8eea4d647e4808e2d "bibtex main"
+  "main.out" 1749690482 684 fe17db5f106098387b1672d0d03b380e "pdflatex"
+  "main.tex" 1749690480 28524 a9eaeb4322801cecda696a1ba9b47b64 ""
+  "main.toc" 1749690482 274 1bed14205cd80fdfca5b4a1d315b2d20 "pdflatex"
+  "swap.png" 1749689259 43527 6498602ba7e3fa959e6ed86c623356ef ""
+  "uaub.png" 1749689613 33944 75a66b002485007697584b3350a7a9d0 ""
+>>>>>>> Stashed changes
   (generated)
   "main.aux"
   "main.log"
